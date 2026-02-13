@@ -1,5 +1,5 @@
 # ODEI — World Model as a Service
-# https://api.odei.ai
+# https://odei.ai
 
 > Persistent memory infrastructure for AI agents. 6-layer knowledge graphs on Neo4j with token-gated API access. $ODAI on Base.
 
@@ -37,6 +37,7 @@ Base URL: https://api.odei.ai
 
 ## Links
 
+- Site: https://odei.ai
 - API: https://api.odei.ai
 - Twitter: https://twitter.com/odei_ai
 - DexScreener: https://dexscreener.com/base/0x0086cff0c1e5d17b19f5bcd4c8840a5b4251d959
