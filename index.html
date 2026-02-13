@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ODEI — World Model as a Service | Roadmap</title>
+  <meta name="description" content="ODEI: Persistent memory infrastructure for AI agents. World Model as a Service on Base. $ODAI token. ETHDenver 2026.">
+  <meta property="og:title" content="ODEI — World Model as a Service">
+  <meta property="og:description" content="Persistent memory infrastructure for AI agents. 6-layer knowledge graphs that survive every session. $ODAI on Base.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://api.odei.ai">
+  <meta name="theme-color" content="#05060A">
+  <link rel="canonical" href="https://api.odei.ai">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@odei_ai">
+  <meta name="twitter:title" content="ODEI — World Model as a Service">
+  <meta name="twitter:description" content="Persistent memory for AI agents. 6-layer knowledge graphs. $ODAI on Base. Built by ODEI Symbiosis.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F30D;</text></svg>">
+  <meta property="og:image" content="https://api.odei.ai/OdeiCard.jpeg">
+  <meta property="og:image:width" content="1424">
+  <meta property="og:image:height" content="752">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta name="twitter:image" content="https://api.odei.ai/OdeiCard.jpeg">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Documentation">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ODEI",
+    "description": "World Model as a Service — persistent memory infrastructure for AI agents. 6-layer knowledge graphs on Neo4j with token-gated API access.",
+    "url": "https://api.odei.ai",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free schema endpoint. Token-gated full access for $ODAI holders."
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "ODEI Symbiosis",
+      "url": "https://api.odei.ai"
+    }
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #05060A;
+      --bg-primary: #0B0E14;
+      --bg-card: #121622;
+      --bg-elevated: #1D2331;
+      --accent: #4FD1C5;
+      --accent-dim: rgba(79, 209, 197, 0.15);
+      --accent-glow: rgba(79, 209, 197, 0.3);
+      --gold: #F4C95D;
+      --gold-dim: rgba(244, 201, 93, 0.15);
+      --ink-high: #E8ECF4;
+      --ink-med: #B6C0D2;
+      --muted: #7C889A;
+      --danger: #FF7B7B;
+      --green: #68D391;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif;
+      background: var(--bg-deep);
+      color: var(--ink-high);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        linear-gradient(rgba(79,209,197,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79,209,197,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .grid-mouse {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(79,209,197,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79,209,197,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 500px 500px at var(--mx, 50%) var(--my, 50%), black 0%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 500px 500px at var(--mx, 50%) var(--my, 50%), black 0%, transparent 100%);
+    }
+
+    .particles { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+    .particles span {
+      position: absolute; width: 2px; height: 2px;
+      background: var(--accent); border-radius: 50%; opacity: 0;
+      animation: pfloat linear infinite;
+      will-change: transform, opacity;
+      contain: layout style;
+    }
+    .particles span:nth-child(1) { left: 10%; animation-duration: 14s; animation-delay: 0s; }
+    .particles span:nth-child(2) { left: 20%; animation-duration: 18s; animation-delay: 2s; }
+    .particles span:nth-child(3) { left: 35%; animation-duration: 12s; animation-delay: 4s; }
+    .particles span:nth-child(4) { left: 50%; animation-duration: 16s; animation-delay: 1s; }
+    .particles span:nth-child(5) { left: 65%; animation-duration: 13s; animation-delay: 3s; }
+    .particles span:nth-child(6) { left: 80%; animation-duration: 17s; animation-delay: 5s; }
+    .particles span:nth-child(7) { left: 92%; animation-duration: 15s; animation-delay: 7s; }
+    @keyframes pfloat {
+      0%   { bottom: -5%; opacity: 0; transform: translateX(0); }
+      10%  { opacity: 0.4; }
+      90%  { opacity: 0.4; }
+      100% { bottom: 105%; opacity: 0; transform: translateX(30px); }
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+    /* ── Header ── */
+    .hero {
+      text-align: center;
+      padding: 80px 0 40px;
+    }
+    .hero-wordmark {
+      font-size: 4rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 0 30px rgba(79,209,197,0.15));
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--ink-med);
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .hero-tagline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── Status Bar ── */
+    .status-bar {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding: 20px 0;
+      margin: 24px 0 48px;
+      border-top: 1px solid rgba(79,209,197,0.1);
+      border-bottom: 1px solid rgba(79,209,197,0.1);
+    }
+    .status-item {
+      text-align: center;
+    }
+    .status-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .status-value.gold { color: var(--gold); }
+    .status-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Phase cards ── */
+    .phase {
+      margin-bottom: 40px;
+      border: 1px solid rgba(79,209,197,0.08);
+      border-radius: 12px;
+      background: var(--bg-card);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .phase:hover {
+      border-color: rgba(79,209,197,0.2);
+    }
+    .phase.done-phase { border-left: 3px solid var(--green); }
+    .phase.done-phase .phase-title { color: var(--green); }
+    .phase.active-phase { border-left: 3px solid var(--accent); }
+    .phase.future-phase { border-left: 3px solid var(--muted); }
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      border-bottom: 1px solid rgba(79,209,197,0.06);
+    }
+    .phase-number {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bg-deep);
+      background: var(--accent);
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .phase-number.gold { background: var(--gold); }
+    .phase-number.muted-bg { background: var(--muted); }
+    .phase-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      flex: 1;
+    }
+    .phase-dates {
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .phase-status-tag {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-left: 8px;
+      text-transform: uppercase;
+    }
+    .phase-status-tag.complete { background: rgba(104,211,145,0.12); color: var(--green); }
+    .phase-status-tag.active { background: rgba(79,209,197,0.12); color: var(--accent); animation: pulse 2s infinite; }
+    .phase-body {
+      padding: 20px 24px;
+    }
+    .phase-desc {
+      font-size: 0.85rem;
+      color: var(--ink-med);
+      margin-bottom: 16px;
+    }
+
+    /* ── Task items ── */
+    .task-group {
+      margin-bottom: 16px;
+    }
+    .task-group-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .task {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 0.85rem;
+      color: var(--ink-med);
+    }
+    .task + .task {
+      border-top: 1px solid rgba(79,209,197,0.04);
+    }
+    .check {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      margin-top: 1px;
+    }
+    .check.done {
+      background: rgba(104, 211, 145, 0.15);
+      color: var(--green);
+      border: 1px solid rgba(104, 211, 145, 0.3);
+    }
+    .check.progress {
+      background: rgba(79, 209, 197, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(79, 209, 197, 0.3);
+      animation: pulse-ring 2s infinite;
+    }
+    .check.upcoming {
+      background: rgba(124, 136, 154, 0.1);
+      color: var(--muted);
+      border: 1px solid rgba(124, 136, 154, 0.2);
+    }
+    @keyframes pulse-ring {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(79,209,197,0.3); }
+      50% { box-shadow: 0 0 0 4px rgba(79,209,197,0); }
+    }
+    .task-text.done { color: var(--green); }
+    .task-text.progress { color: var(--accent); }
+    .task-commit {
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      margin-left: 4px;
+    }
+
+    /* ── Priority Matrix ── */
+    .matrix {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .matrix th {
+      text-align: left;
+      padding: 10px 12px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(79,209,197,0.1);
+    }
+    .matrix td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(79,209,197,0.04);
+      color: var(--ink-med);
+    }
+    .matrix tbody tr:nth-child(even) td { background: rgba(79,209,197,0.02); }
+    .matrix tr:hover td { background: rgba(79,209,197,0.05); }
+    .matrix-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; position: relative; }
+    .badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+    }
+    .badge.p0 { background: rgba(255,123,123,0.15); color: var(--danger); }
+    .badge.p1 { background: rgba(79,209,197,0.15); color: var(--accent); }
+    .badge.p2 { background: rgba(244,201,93,0.15); color: var(--gold); }
+    .badge.p3 { background: rgba(124,136,154,0.15); color: var(--muted); }
+
+    /* ── Non-negotiables ── */
+    .rules {
+      list-style: none;
+      padding: 0;
+    }
+    .rules li {
+      padding: 12px 0;
+      font-size: 0.85rem;
+      color: var(--ink-med);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .rules li + li {
+      border-top: 1px solid rgba(79,209,197,0.04);
+    }
+    .rule-num {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    .rule-bold { color: var(--ink-high); font-weight: 600; }
+
+    /* ── Metrics ── */
+    .metric-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 0;
+      font-size: 0.85rem;
+    }
+    .metric-row + .metric-row {
+      border-top: 1px solid rgba(79,209,197,0.04);
+    }
+    .metric-label {
+      flex: 1;
+      color: var(--ink-med);
+    }
+    .metric-target {
+      color: var(--muted);
+      font-size: 0.75rem;
+      width: 80px;
+      text-align: right;
+    }
+    .metric-bar-wrap {
+      width: 140px;
+      height: 6px;
+      background: var(--bg-elevated);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .metric-bar {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      width: 0;
+      transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 60px;
+      padding: 40px 0;
+      border-top: 1px solid rgba(79,209,197,0.1);
+      text-align: center;
+    }
+    .footer-token {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      word-break: break-all;
+      margin-bottom: 16px;
+    }
+    .footer-token a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .footer-token a:hover { text-decoration: underline; }
+    .copy-btn {
+      background: var(--accent-dim); color: var(--accent);
+      border: 1px solid rgba(79,209,197,0.2); border-radius: 4px;
+      padding: 2px 10px; font-size: 0.65rem; font-weight: 600;
+      cursor: pointer; margin-left: 8px; letter-spacing: 0.04em;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .copy-btn:hover { background: rgba(79,209,197,0.25); border-color: var(--accent); }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--ink-med);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-sig {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .footer-sig span { color: var(--accent); }
+
+    /* ── Section titles ── */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 48px 0 20px;
+      padding-left: 16px;
+      border-left: 3px solid var(--accent);
+    }
+
+    /* ── Layer stack ── */
+    .layer-stack { display: flex; flex-direction: column; gap: 2px; }
+    .layer-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 10px 16px;
+      background: var(--bg-card);
+      border-left: 3px solid var(--layer-color, var(--accent));
+      transition: background 0.2s, transform 0.2s;
+    }
+    .layer-item:hover { background: var(--bg-elevated); transform: translateX(4px); }
+    .layer-name {
+      font-size: 0.82rem; font-weight: 700; color: var(--layer-color, var(--accent));
+      min-width: 90px;
+    }
+    .layer-desc { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .hero-wordmark { font-size: 2.5rem; }
+      .hero { padding: 50px 0 30px; }
+      .status-bar { gap: 16px; }
+      .phase-header { flex-wrap: wrap; gap: 8px; }
+      .phase-dates { width: 100%; }
+      .metric-bar-wrap { width: 80px; }
+      .metric-row { flex-wrap: wrap; gap: 8px; }
+      .metric-target { width: auto; text-align: left; }
+      .metric-bar-wrap { width: 100%; }
+      .matrix { font-size: 0.75rem; min-width: 580px; }
+      .matrix th, .matrix td { padding: 8px 6px; }
+      .footer-links { flex-direction: column; gap: 12px; align-items: center; }
+      .container { padding: 0 16px; }
+    }
+
+    /* ── Animate in ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      will-change: opacity, transform;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Fallback: if JS fails, show everything */
+    .no-js .fade-in { opacity: 1; transform: none; }
+
+    /* Respect reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      .fade-in { opacity: 1; transform: none; }
+    }
+
+    /* Smooth scroll for anchor links */
+    html { scroll-behavior: smooth; }
+
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    /* ── Scroll progress bar ── */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 2px; z-index: 50;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      width: 0; transition: width 0.1s linear;
+    }
+
+    /* ── Focus & skip link ── */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+    .skip-link {
+      position: absolute; top: -100px; left: 16px;
+      background: var(--accent); color: var(--bg-deep);
+      padding: 8px 16px; border-radius: 4px; font-size: 0.85rem;
+      font-weight: 600; z-index: 100; text-decoration: none;
+    }
+    .skip-link:focus { top: 16px; }
+
+    /* ── API link pill ── */
+    .api-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--bg-elevated);
+      border: 1px solid rgba(79,209,197,0.15);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+      margin-top: 16px;
+    }
+    .api-pill:hover {
+      border-color: rgba(79,209,197,0.4);
+      background: rgba(79,209,197,0.05);
+    }
+    .api-dot {
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    /* ── Hero sphere ── */
+    .hero-sphere {
+      position: relative;
+      width: 100px; height: 100px;
+      margin: 0 auto 12px;
+      perspective: 300px;
+      transform-style: preserve-3d;
+    }
+    .hero-sphere .ring {
+      position: absolute; inset: 0;
+      border: 1.5px solid rgba(79,209,197,0.3);
+      border-radius: 50%;
+      transform-style: preserve-3d;
+    }
+    .hero-sphere .ring:nth-child(1) { animation: ring-a 10s linear infinite; }
+    .hero-sphere .ring:nth-child(2) { animation: ring-b 14s linear infinite; border-color: rgba(244,201,93,0.2); }
+    .hero-sphere .ring:nth-child(3) { animation: ring-c 18s linear infinite; }
+    .hero-sphere .ring:nth-child(4) { animation: ring-d 22s linear infinite; border-color: rgba(79,209,197,0.15); width: 80%; height: 80%; top: 10%; left: 10%; }
+    .hero-sphere .ring:nth-child(5) { animation: ring-e 16s linear infinite; border-color: rgba(244,201,93,0.12); width: 60%; height: 60%; top: 20%; left: 20%; }
+    .hero-sphere .core {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 6px; height: 6px;
+      margin: -3px 0 0 -3px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 16px rgba(79,209,197,0.5), 0 0 40px rgba(79,209,197,0.15);
+    }
+    @keyframes ring-a { from { transform: rotateX(70deg) rotateY(0deg); } to { transform: rotateX(70deg) rotateY(360deg); } }
+    @keyframes ring-b { from { transform: rotateX(30deg) rotateY(0deg); } to { transform: rotateX(30deg) rotateY(360deg); } }
+    @keyframes ring-c { from { transform: rotateX(50deg) rotateZ(0deg); } to { transform: rotateX(50deg) rotateZ(360deg); } }
+    @keyframes ring-d { from { transform: rotateY(65deg) rotateZ(0deg); } to { transform: rotateY(65deg) rotateZ(360deg); } }
+    @keyframes ring-e { from { transform: rotateX(85deg) rotateY(0deg); } to { transform: rotateX(85deg) rotateY(360deg); } }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="grid-mouse"></div>
+<div class="particles">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<div class="container">
+<main id="main">
+
+  <!-- ═══ HERO ═══ -->
+  <header class="hero fade-in">
+    <div class="hero-sphere" aria-hidden="true">
+      <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+      <div class="ring"></div><div class="ring"></div>
+      <div class="core"></div>
+    </div>
+    <h1 class="hero-wordmark">ODEI</h1>
+    <p class="hero-sub">World Model as a Service</p>
+    <p class="hero-tagline">
+      Persistent memory infrastructure for AI agents. 6-layer knowledge graphs on Neo4j.
+      Token-gated API. Built by human-AI symbiosis.
+    </p>
+    <span class="api-pill">
+      <span class="api-dot"></span>
+      WMaaS API — 6-Layer Knowledge Graphs
+    </span>
+  </header>
+
+  <!-- ═══ STATUS BAR ═══ -->
+  <div class="status-bar fade-in">
+    <div class="status-item">
+      <div class="status-value">$ODAI</div>
+      <div class="status-label">Token on Base</div>
+    </div>
+    <div class="status-item">
+      <div class="status-value gold" id="ethdenver-countdown">4d</div>
+      <div class="status-label">ETHDenver</div>
+    </div>
+    <div class="status-item">
+      <div class="status-value" data-countup="255">0</div>
+      <div class="status-label">Holders</div>
+    </div>
+    <div class="status-item">
+      <div class="status-value">6</div>
+      <div class="status-label">Graph Layers</div>
+    </div>
+    <div class="status-item">
+      <div class="status-value">100%</div>
+      <div class="status-label">Fair Launch</div>
+    </div>
+  </div>
+
+  <!-- ═══ 6-LAYER ARCHITECTURE ═══ -->
+  <div class="fade-in" style="margin-bottom:48px">
+    <h2 class="section-title" style="margin-top:0">The 6-Layer World Model</h2>
+    <p style="font-size:0.85rem;color:var(--ink-med);margin-bottom:20px;padding-left:16px">Every AI agent gets a persistent knowledge graph with 6 semantic layers — from identity to real-time tracking.</p>
+    <div class="layer-stack">
+      <div class="layer-item" style="--layer-color:var(--muted)"><span class="layer-name">Foundation</span><span class="layer-desc">Identity, values, governance</span></div>
+      <div class="layer-item" style="--layer-color:var(--gold)"><span class="layer-name">Vision</span><span class="layer-desc">Goals, objectives, key results</span></div>
+      <div class="layer-item" style="--layer-color:var(--accent)"><span class="layer-name">Strategy</span><span class="layer-desc">Initiatives, milestones, decisions</span></div>
+      <div class="layer-item" style="--layer-color:var(--accent)"><span class="layer-name">Tactics</span><span class="layer-desc">Tasks, processes, routines</span></div>
+      <div class="layer-item" style="--layer-color:var(--green)"><span class="layer-name">Execution</span><span class="layer-desc">Work sessions, time blocks, actions</span></div>
+      <div class="layer-item" style="--layer-color:var(--danger)"><span class="layer-name">Track</span><span class="layer-desc">Metrics, facts, observations, signals</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ PHASE 0: STABILIZE ═══ -->
+  <div class="phase fade-in done-phase">
+    <div class="phase-header">
+      <span class="phase-number">Phase 0</span>
+      <span class="phase-title">Stabilize</span>
+      <span class="phase-dates">Feb 12<span class="phase-status-tag complete">Complete</span></span>
+    </div>
+    <div class="phase-body">
+      <div class="task-group">
+        <div class="task">
+          <span class="check done" aria-label="Completed">&#10003;</span>
+          <span class="task-text done">Commit all production code — WMaaS, payments, autonomous agents</span>
+          <span class="task-commit">21acee1</span>
+        </div>
+        <div class="task">
+          <span class="check done" aria-label="Completed">&#10003;</span>
+          <span class="task-text done">DexScreener Enhanced Token Info submitted</span>
+        </div>
+        <div class="task">
+          <span class="check done" aria-label="Completed">&#10003;</span>
+          <span class="task-text done">$ODAI live on Base via Flaunch — 100% fair launch, zero pre-mine</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PHASE 1: WMaaS MVP ═══ -->
+  <div class="phase fade-in done-phase">
+    <div class="phase-header">
+      <span class="phase-number">Phase 1</span>
+      <span class="phase-title">WMaaS MVP — Make the Product Real</span>
+      <span class="phase-dates">Feb 12–14<span class="phase-status-tag complete">Complete</span></span>
+    </div>
+    <div class="phase-body">
+      <p class="phase-desc">World Model as a Service: persistent knowledge graphs for AI agents. Each customer gets a tenant namespace in Neo4j.</p>
+      <div class="task-group">
+        <div class="task">
+          <span class="check done" aria-label="Completed">&#10003;</span>
+          <span class="task-text done">Neo4j persistence — world models survive server restart</span>
+          <span class="task-commit">606aebd</span>
+        </div>
+        <div class="task">
+          <span class="check done" aria-label="Completed">&#10003;</span>
+          <span class="task-text done">Payment verification — on-chain USDC auto-provisions namespaces</span>
+          <span class="task-commit">8cf3202</span>
+        </div>
+        <div class="task">
+          <span class="check done" aria-label="Completed">&#10003;</span>
+          <span class="task-text done">Self-documenting API at /api/worldmodel/docs</span>
+          <span class="task-commit">ee2ca72</span>
+        </div>
+        <div class="task">
+          <span class="check done" aria-label="Completed">&#10003;</span>
+          <span class="task-text done">Query, neighbor traversal, and domain summary endpoints</span>
+          <span class="task-commit">73f6227</span>
+        </div>
+        <div class="task">
+          <span class="check done" aria-label="Completed">&#10003;</span>
+          <span class="task-text done">Token-gated tiers: Free (read-only) / Holder (CRUD) / Premium (dedicated)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PHASE 2: ETHDenver Demo ═══ -->
+  <div class="phase fade-in active-phase">
+    <div class="phase-header">
+      <span class="phase-number gold">Phase 2</span>
+      <span class="phase-title">ETHDenver Demo</span>
+      <span class="phase-dates">Feb 14–16<span class="phase-status-tag active">In Progress</span></span>
+    </div>
+    <div class="phase-body">
+      <p class="phase-desc">A public page where anyone can see a World Model, understand the architecture, and want to hold $ODAI.</p>
+      <div class="task-group">
+        <div class="task">
+          <span class="check done" aria-label="Completed">&#10003;</span>
+          <span class="task-text done">Roadmap landing page on api.odei.ai</span>
+        </div>
+        <div class="task">
+          <span class="check progress" aria-label="In Progress">&#9679;</span>
+          <span class="task-text progress">Interactive World Model visualization — 6-layer graph explorer</span>
+        </div>
+        <div class="task">
+          <span class="check upcoming" aria-label="Upcoming">&#8212;</span>
+          <span class="task-text">QR code + one-pager for ETHDenver booth</span>
+        </div>
+        <div class="task">
+          <span class="check upcoming" aria-label="Upcoming">&#8212;</span>
+          <span class="task-text">Live agent demo — @odei_ai operating autonomously in real-time</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PHASE 3: Autonomous Infrastructure ═══ -->
+  <div class="phase fade-in active-phase">
+    <div class="phase-header">
+      <span class="phase-number">Phase 3</span>
+      <span class="phase-title">Autonomous Infrastructure</span>
+      <span class="phase-dates">Parallel — Feb 12–14<span class="phase-status-tag active">In Progress</span></span>
+    </div>
+    <div class="phase-body">
+      <div class="task-group">
+        <div class="task">
+          <span class="check done" aria-label="Completed">&#10003;</span>
+          <span class="task-text done">8 autonomous agents running (Twitter, DexScreener, copycat guard, Farcaster)</span>
+        </div>
+        <div class="task">
+          <span class="check done" aria-label="Completed">&#10003;</span>
+          <span class="task-text done">Permanent API server + DNS configured</span>
+        </div>
+        <div class="task">
+          <span class="check done" aria-label="Completed">&#10003;</span>
+          <span class="task-text done">HTTPS via Let's Encrypt on api.odei.ai</span>
+        </div>
+        <div class="task">
+          <span class="check upcoming" aria-label="Upcoming">&#8212;</span>
+          <span class="task-text">PM2 process management with crash recovery</span>
+        </div>
+        <div class="task">
+          <span class="check upcoming" aria-label="Upcoming">&#8212;</span>
+          <span class="task-text">Centralized health dashboard</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PHASE 4: Community & Growth ═══ -->
+  <div class="phase fade-in future-phase">
+    <div class="phase-header">
+      <span class="phase-number muted-bg">Phase 4</span>
+      <span class="phase-title">Community & Growth</span>
+      <span class="phase-dates">ETHDenver Week — Feb 17–21</span>
+    </div>
+    <div class="phase-body">
+      <div class="task-group">
+        <div class="task">
+          <span class="check upcoming" aria-label="Upcoming">&#8212;</span>
+          <span class="task-text">Daily product update threads — what shipped today</span>
+        </div>
+        <div class="task">
+          <span class="check upcoming" aria-label="Upcoming">&#8212;</span>
+          <span class="task-text">Architecture explainers — 6 layers, constitutional policies, audit trail</span>
+        </div>
+        <div class="task">
+          <span class="check upcoming" aria-label="Upcoming">&#8212;</span>
+          <span class="task-text">Ecosystem partnerships — Flaunch, Aerodrome, Base builders</span>
+        </div>
+        <div class="task">
+          <span class="check upcoming" aria-label="Upcoming">&#8212;</span>
+          <span class="task-text">Holder onboarding — "You hold $ODAI. Here's what you get."</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PHASE 5: Post-ETHDenver ═══ -->
+  <div class="phase fade-in future-phase">
+    <div class="phase-header">
+      <span class="phase-number muted-bg">Phase 5</span>
+      <span class="phase-title">Post-ETHDenver Scaling</span>
+      <span class="phase-dates">Feb 22+</span>
+    </div>
+    <div class="phase-body">
+      <div class="task-group">
+        <div class="task">
+          <span class="check upcoming" aria-label="Upcoming">&#8212;</span>
+          <span class="task-text">Multi-agent World Models — any AI agent connects via MCP</span>
+        </div>
+        <div class="task">
+          <span class="check upcoming" aria-label="Upcoming">&#8212;</span>
+          <span class="task-text">Cross-agent world model sharing with permissions</span>
+        </div>
+        <div class="task">
+          <span class="check upcoming" aria-label="Upcoming">&#8212;</span>
+          <span class="task-text">$ODAI governance — holders vote on protocol parameters</span>
+        </div>
+        <div class="task">
+          <span class="check upcoming" aria-label="Upcoming">&#8212;</span>
+          <span class="task-text">Staking + revenue distribution to holders</span>
+        </div>
+        <div class="task">
+          <span class="check upcoming" aria-label="Upcoming">&#8212;</span>
+          <span class="task-text">Multi-chain expansion beyond Base</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PRIORITY MATRIX ═══ -->
+  <h2 class="section-title fade-in">Priority Matrix</h2>
+  <div class="phase fade-in" style="padding: 4px;">
+    <div class="matrix-wrap">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Task</th>
+          <th>Deadline</th>
+          <th>Impact</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge p0">P0</span></td>
+          <td>Commit all code</td>
+          <td>Feb 12</td>
+          <td>Safety</td>
+          <td><span class="badge" style="background:rgba(104,211,145,0.15);color:var(--green)">Done</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge p0">P0</span></td>
+          <td>DexScreener listing</td>
+          <td>Feb 12</td>
+          <td>Credibility</td>
+          <td><span class="badge" style="background:rgba(104,211,145,0.15);color:var(--green)">Done</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge p1">P1</span></td>
+          <td>Neo4j persistence</td>
+          <td>Feb 14</td>
+          <td>Product-market fit</td>
+          <td><span class="badge" style="background:rgba(104,211,145,0.15);color:var(--green)">Done</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge p1">P1</span></td>
+          <td>Permanent API (HTTPS)</td>
+          <td>Feb 14</td>
+          <td>Infrastructure</td>
+          <td><span class="badge" style="background:rgba(104,211,145,0.15);color:var(--green)">Done</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge p2">P2</span></td>
+          <td>ETHDenver demo page</td>
+          <td>Feb 16</td>
+          <td>Showcase</td>
+          <td><span class="badge" style="background:rgba(79,209,197,0.15);color:var(--accent)">WIP</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge p2">P2</span></td>
+          <td>API documentation</td>
+          <td>Feb 15</td>
+          <td>Developer adoption</td>
+          <td><span class="badge" style="background:rgba(104,211,145,0.15);color:var(--green)">Done</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge p3">P3</span></td>
+          <td>Process management</td>
+          <td>Feb 17</td>
+          <td>Reliability</td>
+          <td><span class="badge" style="background:rgba(124,136,154,0.15);color:var(--muted)">Todo</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge p3">P3</span></td>
+          <td>Content strategy</td>
+          <td>Ongoing</td>
+          <td>Growth</td>
+          <td><span class="badge" style="background:rgba(79,209,197,0.15);color:var(--accent)">WIP</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ═══ NON-NEGOTIABLES ═══ -->
+  <h2 class="section-title fade-in">Non-Negotiables</h2>
+  <div class="phase fade-in">
+    <div class="phase-body">
+      <ul class="rules">
+        <li>
+          <span class="rule-num">1</span>
+          <span><span class="rule-bold">Never stop Twitter engagement</span> — agents run 24/7, no downtime</span>
+        </li>
+        <li>
+          <span class="rule-num">2</span>
+          <span><span class="rule-bold">Product before hype</span> — every tweet backed by shipped code</span>
+        </li>
+        <li>
+          <span class="rule-num">3</span>
+          <span><span class="rule-bold">Transparency</span> — fees unclaimed, progress public, open source roadmap</span>
+        </li>
+        <li>
+          <span class="rule-num">4</span>
+          <span><span class="rule-bold">6 layers everywhere</span> — Foundation, Vision, Strategy, Tactics, Execution, Track</span>
+        </li>
+        <li>
+          <span class="rule-num">5</span>
+          <span><span class="rule-bold">The agent builds, the human advises</span> — maintain the narrative</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ SUCCESS METRICS ═══ -->
+  <h2 class="section-title fade-in">Success Metrics — ETHDenver (Feb 21)</h2>
+  <div class="phase fade-in">
+    <div class="phase-body">
+      <div class="metric-row">
+        <span class="metric-label">WMaaS API with persistence</span>
+        <span class="metric-target">Live</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" data-width="100"></div></div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Public demo page</span>
+        <span class="metric-target">QR-ready</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" data-width="40"></div></div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">$ODAI holders</span>
+        <span class="metric-target">500</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" data-width="51"></div></div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Twitter followers @odei_ai</span>
+        <span class="metric-target">200</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" data-width="43"></div></div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">External agent connected</span>
+        <span class="metric-target">1+</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" data-width="0"></div></div>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Sustained MCap</span>
+        <span class="metric-target">$100K+</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" data-width="65"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer fade-in">
+    <div class="footer-token">
+      $ODAI on Base: <a href="https://basescan.org/token/0x0086cff0c1e5d17b19f5bcd4c8840a5b4251d959" target="_blank" rel="noopener">0x0086cff0c1e5d17b19f5bcd4c8840a5b4251d959</a>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText('0x0086cff0c1e5d17b19f5bcd4c8840a5b4251d959').then(function(){var b=document.querySelector('.copy-btn');b.textContent='Copied!';setTimeout(function(){b.textContent='Copy CA'},1500)})" aria-label="Copy contract address">Copy CA</button>
+    </div>
+    <div class="footer-links">
+      <a href="https://twitter.com/odei_ai" target="_blank" rel="noopener">Twitter</a>
+      <a href="https://dexscreener.com/base/0x0086cff0c1e5d17b19f5bcd4c8840a5b4251d959" target="_blank" rel="noopener">DexScreener</a>
+      <a href="https://flaunch.gg/base/coin/0x0086cff0c1e5d17b19f5bcd4c8840a5b4251d959" target="_blank" rel="noopener">Flaunch</a>
+      <a href="/llms.txt" target="_blank">llms.txt</a>
+    </div>
+    <div class="footer-sig">
+      Built by <span>ODEI Symbiosis</span> — Human-AI Partnership
+      <br><span style="font-size:0.65rem;color:var(--muted);margin-top:8px;display:inline-block">Last updated: Feb 13, 2026</span>
+    </div>
+  </footer>
+
+</main>
+</div>
+
+<script>
+  // Remove no-js fallback class
+  document.documentElement.classList.remove('no-js');
+
+  // Mouse-follow grid (throttled with rAF)
+  let rafPending = false;
+  document.addEventListener('mousemove', e => {
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => {
+      const grid = document.querySelector('.grid-mouse');
+      grid.style.setProperty('--mx', e.clientX + 'px');
+      grid.style.setProperty('--my', e.clientY + 'px');
+      rafPending = false;
+    });
+  });
+
+  // Scroll fade-in — polling approach (immune to rAF/scroll throttling)
+  var revealTimer = setInterval(function() {
+    var delay = 0;
+    var threshold = window.innerHeight + 80;
+    var hidden = document.querySelectorAll('.fade-in:not(.visible)');
+    if (!hidden.length) { clearInterval(revealTimer); return; }
+    hidden.forEach(function(el) {
+      if (el.getBoundingClientRect().top < threshold) {
+        el.style.transitionDelay = delay * 0.08 + 's';
+        el.classList.add('visible');
+        delay++;
+      }
+    });
+  }, 150);
+  // Failsafe: reveal everything after 3 seconds
+  setTimeout(function() {
+    clearInterval(revealTimer);
+    document.querySelectorAll('.fade-in:not(.visible)').forEach(function(el, i) {
+      el.style.transitionDelay = i * 0.05 + 's';
+      el.classList.add('visible');
+    });
+  }, 3000);
+
+  // Animate metric bars when metrics section becomes visible
+  var barsAnimated = false;
+  var barTimer = setInterval(function() {
+    if (barsAnimated) { clearInterval(barTimer); return; }
+    var metricsSection = document.querySelectorAll('.metric-bar')[0];
+    if (!metricsSection) return;
+    var parent = metricsSection.closest('.fade-in');
+    if (parent && parent.classList.contains('visible')) {
+      barsAnimated = true;
+      clearInterval(barTimer);
+      document.querySelectorAll('.metric-bar[data-width]').forEach(function(bar, i) {
+        setTimeout(function() {
+          bar.style.width = bar.getAttribute('data-width') + '%';
+        }, i * 120);
+      });
+    }
+  }, 200);
+
+  // Count-up animation for status numbers
+  var countAnimated = false;
+  var countTimer = setInterval(function() {
+    if (countAnimated) { clearInterval(countTimer); return; }
+    var statusBar = document.querySelector('.status-bar');
+    if (statusBar && statusBar.classList.contains('visible')) {
+      countAnimated = true;
+      clearInterval(countTimer);
+      document.querySelectorAll('[data-countup]').forEach(function(el) {
+        var target = parseInt(el.getAttribute('data-countup'));
+        var suffix = '+';
+        var duration = 1200;
+        var start = performance.now();
+        function tick(now) {
+          var elapsed = now - start;
+          var progress = Math.min(elapsed / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }
+  }, 200);
+
+  // Scroll progress bar
+  var progressBar = document.querySelector('.scroll-progress');
+  var progressRaf = false;
+  window.addEventListener('scroll', function() {
+    if (progressRaf) return;
+    progressRaf = true;
+    requestAnimationFrame(function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = pct + '%';
+      progressRaf = false;
+    });
+  });
+
+  // ETHDenver countdown
+  function updateCountdown() {
+    const target = new Date('2026-02-17T09:00:00-07:00');
+    const now = new Date();
+    const diff = target - now;
+    const el = document.getElementById('ethdenver-countdown');
+    if (diff <= 0) { el.textContent = 'LIVE'; return; }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    el.textContent = d > 0 ? d + 'd ' + h + 'h' : h + 'h';
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+</script>
+</body>
+</html>
