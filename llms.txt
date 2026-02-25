@@ -1,81 +1,26 @@
-# ODEI — World Model as a Service
-# https://odei.ai | https://api.odei.ai
+# ODEI — Constitutional World Model for AI Agents
 
-> Constitutional knowledge graph infrastructure for AI agents. Persistent graph memory, 7-layer guardrails, smart contract audit. Production since January 2026.
-
-## What ODEI Is
-
-ODEI is a World Model as a Service (WMaaS) — a production constitutional knowledge graph that gives AI agents persistent memory and decision validation. Running on Neo4j with 91 nodes across 6 semantic domains.
-
-The core insight: agents lose context between sessions. ODEI solves this with a graph-native world model that persists everything an agent knows, decides, and does.
-
-## Live Services (Virtuals ACP Agent #3082)
-
-### world_model_query — $0.25
-Query ODEI's 91-node constitutional knowledge graph. 4 query types: schema, domain, search, traverse. Returns structured JSON with node relationships, confidence scores, provenance.
-
-### guardrail_check — $0.10
-Constitutional AI safety validation before any agent action. 7-layer check: immutability, temporal context, referential integrity, authority, deduplication, provenance, constitutional alignment. Returns APPROVED / REJECTED / ESCALATE.
-
-### world_model_signal — $0.05
-Instant signal for high-frequency agent calls. Returns: agent trust score (0–100), decision validity, domain health, entity relationship. Sub-second response. Trading-agent compatible.
-
-### smart_contract_audit — $5
-EVM smart contract security audit using EVMbench methodology with Claude Opus. 20+ vulnerability classes. Delivers severity-rated findings, PoC code, remediation steps.
-
-### knowledge_graph_build — $15
-Build a custom 6-domain persistent world model for your agent. Production architecture, Neo4j-backed, MCP-server compatible.
-
-### memory_architecture — $25
-Design a production-grade persistent memory architecture for your AI agent. Graph-based, beats context window limitations.
-
-### erc8004_registration — $5
-Register your agent on-chain via ERC-8004 on Base and/or BNB Chain.
+## About
+ODEI (Operational Decision and Execution Intelligence) provides a graph-native world model
+with constitutional safety guardrails for autonomous AI agents.
 
 ## API
-
 Base URL: https://api.odei.ai
+Documentation: https://api.odei.ai/integrate/
 
-- GET  /api/v2/health       — Service health (public)
-- GET  /api/v2/schema       — World model schema (public)
-- GET  /api/worldmodel/live — Live graph data, 91 nodes (auth)
-- POST /api/v2/world-model/query    — Query the knowledge graph (auth)
-- POST /api/v2/guardrail/check      — Constitutional validation (auth)
+## MCP Server
+Install: npx @odei/mcp-server
+Config: Add to ~/.claude/mcp.json
 
-Auth: Bearer JWT via api.odei.ai/integrate/
+## Tools
+- odei_world_model_query: Search 10,665-node knowledge graph
+- odei_guardrail_check: 7-layer constitutional safety validation
+- odei_world_model_signal: Rapid trust scores
+- odei_smart_contract_audit: EVM security analysis
 
-## Architecture
-
-6-layer knowledge graph:
-- FOUNDATION: Identity, values, partnerships, principles (25 nodes)
-- VISION:     Long-term goals, destinations (12 nodes)
-- STRATEGY:   Plans, initiatives, decisions (16 nodes)
-- TACTICS:    Tasks, time blocks, execution (8 nodes)
-- EXECUTION:  Work sessions, deliverables (11 nodes)
-- TRACK:      Metrics, observations, signals (19 nodes)
-
-Total: 91 nodes, 91 relationship types, running since January 2026.
-
-## Marketplace Presence
-
-- Virtuals ACP: Agent #3082 — app.virtuals.io/acp/agent-details/3082
-- Clawlancer: Agent 32e99873 — clawlancer.ai
-- Fetch.ai Agentverse: agent1q2x5c6uf7lmveeamelem0v0jp4089ev3ftm6ng9yz8jker400555uf5qq50
-- ERC-8004 Base: Agent #2065 — contract 0x8004A169FB4a3325136EB29fA0ceB6D2e539a432
-- ERC-8004 BSC: Agent #5249
-- SATI: Member #18 — Solana soul-bound identity
-
-## Token
-
-$ODAI on Base: 0x0086cff0c1e5d17b19f5bcd4c8840a5b4251d959
-Fair launch via Flaunch. Revenue from ACP service fees flows to token holders.
-18+ ETH in autonomous revenue since launch.
-
-## Links
-
-- Landing: https://odei.ai
-- Product: https://api.odei.ai
-- Integrate: https://api.odei.ai/integrate/
-- Twitter: https://x.com/odei_ai
-- GitHub: https://github.com/odei-ai
-- GeckoTerminal: https://geckoterminal.com/base/tokens/0x0086cff0c1e5d17b19f5bcd4c8840a5b4251d959
+## Contact
+Website: https://odei.ai
+API: https://api.odei.ai
+GitHub: https://github.com/odei-ai
+Twitter: https://x.com/odei_ai
+Email: ai@odei.ai
