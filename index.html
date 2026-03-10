@@ -72,6 +72,44 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://odei.ai/#organization",
+          "name": "ODEI",
+          "url": "https://odei.ai/",
+          "logo": "https://odei.ai/OdeiCard.jpeg",
+          "founder": {
+            "@type": "Person",
+            "name": "Anton Illarionov"
+          },
+          "sameAs": [
+            "https://github.com/odei-ai",
+            "https://x.com/odei_ai",
+            "https://www.linkedin.com/company/odei-ai/"
+          ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "contactType": "company",
+              "email": "legal@odei.ai",
+              "url": "https://odei.ai/company/"
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://odei.ai/#website",
+          "name": "ODEI",
+          "url": "https://odei.ai/"
+        }
+      ]
+    }
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -13459,7 +13497,7 @@
 
     </svg>
 
-    <!-- No-JS fallback: Site requires JavaScript for full experience -->
+    <!-- No-JS fallback: crawlable company & product summary -->
     <noscript>
         <style>
             .page {
@@ -13476,7 +13514,65 @@
             .nav-arrows {
                 display: none !important;
             }
+
+            .noscript-content {
+                max-width: 720px;
+                margin: 2rem auto;
+                padding: 2rem;
+                color: #d8e0ef;
+                font-family: 'IBM Plex Mono', monospace;
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            .noscript-content h2 {
+                color: #4FD1C5;
+                font-size: 20px;
+                margin: 1.5rem 0 0.5rem;
+            }
+
+            .noscript-content p,
+            .noscript-content li {
+                color: #9ba8c1;
+                margin-bottom: 0.5rem;
+            }
+
+            .noscript-content a {
+                color: #4FD1C5;
+            }
         </style>
+        <div class="noscript-content">
+            <h2>About ODEI</h2>
+            <p>ODEI is infrastructure for building personal AI agents. Founded by Anton Illarionov, ODEI provides a constitutional knowledge graph with 91+ node types and 6 governance layers that turns any AI into a governed, persistent, and accountable system.</p>
+
+            <h2>Product</h2>
+            <p>ODEI's World Model is a Neo4j-powered knowledge graph organized across six domains: Foundation, Vision, Strategy, Tactics, Execution, and Track. Every AI action passes through constitutional guardrails before execution. The operational loop: Observe, Decide, Act, Verify, Evolve.</p>
+
+            <h2>What We Build</h2>
+            <ul>
+                <li>Personal AI Agent Platform — deploy your own AI agent backed by a constitutional world model</li>
+                <li>Decentralized Agentic Organisation — $ODAI holders build and govern AI agents together</li>
+                <li>World Model API — public and governed endpoints for AI infrastructure integration</li>
+            </ul>
+
+            <h2>Live Infrastructure</h2>
+            <p>ODEI runs 18+ production daemons 24/7 on Google Cloud, maintaining an 11,000+ node knowledge graph with real-time telemetry. The system processes thousands of AI-to-AI architecture exchanges and generates verifiable on-chain revenue.</p>
+
+            <h2>Company</h2>
+            <p>ODEI is operated by Anton Illarionov, registered sole proprietor in Budapest, Hungary (Registration: 61955583, Tax ID: 91815600-1-42).</p>
+
+            <h2>Links</h2>
+            <ul>
+                <li><a href="https://odei.ai/company/">Company Overview</a></li>
+                <li><a href="https://api.odei.ai/">Product &amp; API</a></li>
+                <li><a href="https://api.odei.ai/docs/">Documentation</a></li>
+                <li><a href="https://api.odei.ai/one-pager/">One-Pager</a></li>
+                <li><a href="https://x.com/odei_ai">X / Twitter</a></li>
+                <li><a href="https://github.com/odei-ai">GitHub</a></li>
+            </ul>
+
+            <p>Contact: <a href="mailto:legal@odei.ai">legal@odei.ai</a></p>
+        </div>
     </noscript>
 
     <div class="progress-bar" id="progressBar"></div>
@@ -13604,6 +13700,7 @@
                         </div>
                         <p class="copyright"><a href="#" class="home-link"
                                 style="text-decoration:none; color:inherit; cursor:pointer;">ODEI</a> · <a
+                                href="/company/" style="text-decoration:none; color:inherit;">Company</a> · <a
                                 href="#privacy" style="text-decoration:none; color:inherit;">Privacy</a> · <a
                                 href="#connect" style="text-decoration:none; color:inherit;">Connect</a></p>
                     </div>
@@ -16200,7 +16297,8 @@
                     </a>
                 </div>
                 <p class="copyright"><a href="#" class="home-link"
-                        style="text-decoration:none; color:inherit; cursor:pointer;">ODEI</a> · <a href="#privacy"
+                        style="text-decoration:none; color:inherit; cursor:pointer;">ODEI</a> · <a href="/company/"
+                        style="text-decoration:none; color:inherit;">Company</a> · <a href="#privacy"
                         style="text-decoration:none; color:inherit;">Privacy</a> · <a href="#connect"
                         style="text-decoration:none; color:inherit;">Connect</a></p>
             </div>

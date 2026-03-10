@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ODEI | Company Overview</title>
+    <meta name="description" content="Public company overview for ODEI: product, infrastructure, founder, company details, public links, and contact information.">
+    <link rel="canonical" href="https://odei.ai/company/">
+    <meta name="theme-color" content="#000000">
+    <meta name="robots" content="index,follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ODEI | Company Overview">
+    <meta property="og:description" content="Public company overview for ODEI: personal AI operating system, governed agent infrastructure, founder, public links, and contact information.">
+    <meta property="og:image" content="https://odei.ai/OdeiCard.jpeg">
+    <meta property="og:url" content="https://odei.ai/company/">
+    <meta property="og:site_name" content="ODEI">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ODEI | Company Overview">
+    <meta name="twitter:description" content="Public company overview for ODEI: personal AI operating system, governed agent infrastructure, founder, public links, and contact information.">
+    <meta name="twitter:image" content="https://odei.ai/OdeiCard.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://odei.ai/#organization",
+          "name": "ODEI",
+          "url": "https://odei.ai/",
+          "logo": "https://odei.ai/OdeiCard.jpeg",
+          "founder": {
+            "@type": "Person",
+            "name": "Anton Illarionov"
+          },
+          "sameAs": [
+            "https://github.com/odei-ai",
+            "https://x.com/odei_ai",
+            "https://www.linkedin.com/company/odei-ai/"
+          ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "contactType": "company",
+              "email": "legal@odei.ai",
+              "url": "https://odei.ai/company/"
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "ODEI",
+          "url": "https://odei.ai/",
+          "applicationCategory": "ProductivityApplication",
+          "operatingSystem": "Web, macOS, Windows, Linux",
+          "description": "ODEI is a personal AI operating system and constitutional world model for governed, persistent, and auditable AI agents."
+        },
+        {
+          "@type": "WebSite",
+          "url": "https://odei.ai/",
+          "name": "ODEI"
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg: #05070b;
+            --panel: rgba(12, 18, 26, 0.9);
+            --panel-strong: rgba(10, 16, 24, 0.98);
+            --text: #d7e1ef;
+            --muted: #93a4bd;
+            --accent: #4FD1C5;
+            --accent-soft: rgba(79, 209, 197, 0.14);
+            --border: rgba(79, 209, 197, 0.2);
+            --max-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(circle at top, rgba(79, 209, 197, 0.08), transparent 35%),
+                linear-gradient(180deg, #040608 0%, #05070b 100%);
+            color: var(--text);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 32px 32px;
+            opacity: 0.18;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .shell {
+            position: relative;
+            z-index: 1;
+            width: min(calc(100% - 32px), var(--max-width));
+            margin: 0 auto;
+            padding: 32px 0 64px;
+        }
+
+        .topbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .topbar-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .hero,
+        .panel,
+        .fact-grid,
+        .links-grid {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero {
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 10px;
+            margin-bottom: 14px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3,
+        p,
+        li {
+            margin-top: 0;
+        }
+
+        h1 {
+            max-width: 14ch;
+            margin-bottom: 16px;
+            font-size: clamp(32px, 7vw, 56px);
+            line-height: 1.05;
+        }
+
+        .hero-copy {
+            max-width: 74ch;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: var(--border);
+        }
+
+        .fact {
+            padding: 20px;
+            background: var(--panel-strong);
+        }
+
+        .fact-label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--muted);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .fact-value {
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        .panel {
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 14px;
+            font-size: 22px;
+        }
+
+        .panel p,
+        .panel li {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .panel ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .note {
+            padding: 16px 18px;
+            margin-top: 18px;
+            border-left: 3px solid var(--accent);
+            background: rgba(79, 209, 197, 0.07);
+            color: var(--text);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1px;
+            overflow: hidden;
+            background: var(--border);
+        }
+
+        .link-card {
+            display: block;
+            padding: 18px 20px;
+            background: var(--panel-strong);
+            text-decoration: none;
+        }
+
+        .link-card:hover,
+        .link-card:focus-visible {
+            background: rgba(14, 24, 35, 0.98);
+            outline: none;
+        }
+
+        .link-title {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text);
+            font-size: 15px;
+        }
+
+        .link-desc {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .footer {
+            margin-top: 28px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 900px) {
+            .fact-grid,
+            .links-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .shell {
+                width: min(calc(100% - 20px), var(--max-width));
+                padding-top: 20px;
+            }
+
+            .hero,
+            .panel {
+                padding: 20px;
+            }
+
+            .fact-grid,
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="shell">
+        <div class="topbar">
+            <div>ODEI | Public Company Overview</div>
+            <div class="topbar-links">
+                <a href="https://odei.ai/">Home</a>
+                <a href="https://api.odei.ai/">Product &amp; API</a>
+                <a href="https://api.odei.ai/docs/">Docs</a>
+                <a href="mailto:legal@odei.ai">Contact</a>
+            </div>
+        </div>
+
+        <section class="hero">
+            <span class="eyebrow">Company Overview</span>
+            <h1>ODEI builds personal AI operating systems.</h1>
+            <p class="hero-copy">
+                ODEI is a software product company building governed AI infrastructure for individuals and
+                AI-native operators. The product combines persistent memory, a graph-based world model,
+                constitutional guardrails, and auditable execution so an AI system can act with continuity,
+                user control, and clear provenance.
+            </p>
+        </section>
+
+        <section class="fact-grid" aria-label="Company facts">
+            <div class="fact">
+                <span class="fact-label">Product</span>
+                <div class="fact-value">Personal AI operating system with governed memory, policy, and agent execution.</div>
+            </div>
+            <div class="fact">
+                <span class="fact-label">Status</span>
+                <div class="fact-value">Active public website, public docs/API surfaces, product in early access.</div>
+            </div>
+            <div class="fact">
+                <span class="fact-label">Infrastructure</span>
+                <div class="fact-value">Google Cloud workloads, Neo4j-backed world model, 18+ production daemons.</div>
+            </div>
+            <div class="fact">
+                <span class="fact-label">Company</span>
+                <div class="fact-value">Operated by Anton Illarionov, Budapest, Hungary.</div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>What ODEI does</h2>
+            <p>
+                ODEI provides a constitutional world model for AI agents. Instead of relying on isolated prompts
+                and session-bound chat history, ODEI keeps user context in a persistent graph, routes actions
+                through policy checks, and records why the system acted. The result is an AI control layer that
+                can compound knowledge over time while remaining inspectable and user-governed.
+            </p>
+            <ul>
+                <li>Persistent memory across sessions with user-owned context and provenance.</li>
+                <li>Graph-native world model for goals, tasks, entities, evidence, and operating context.</li>
+                <li>Constitutional guardrails applied before AI actions are executed.</li>
+                <li>Public API and documentation at <a href="https://api.odei.ai/">api.odei.ai</a>.</li>
+            </ul>
+            <div class="note">
+                ODEI is a product company. It is not a consultancy, dev shop, agency, personal blog, or content site.
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Public product and company surfaces</h2>
+            <div class="links-grid">
+                <a class="link-card" href="https://odei.ai/">
+                    <span class="link-title">Main Website</span>
+                    <span class="link-desc">Public landing page for the product vision and positioning.</span>
+                </a>
+                <a class="link-card" href="https://api.odei.ai/">
+                    <span class="link-title">Product &amp; API</span>
+                    <span class="link-desc">Operational site with product surfaces, metrics, and live public endpoints.</span>
+                </a>
+                <a class="link-card" href="https://api.odei.ai/docs/">
+                    <span class="link-title">Documentation</span>
+                    <span class="link-desc">Technical documentation for integrations and public routes.</span>
+                </a>
+                <a class="link-card" href="https://api.odei.ai/one-pager/">
+                    <span class="link-title">One-Pager</span>
+                    <span class="link-desc">Compact overview of the company, product, and roadmap.</span>
+                </a>
+                <a class="link-card" href="https://github.com/odei-ai">
+                    <span class="link-title">GitHub</span>
+                    <span class="link-desc">Public code and technical ecosystem repositories.</span>
+                </a>
+                <a class="link-card" href="https://www.linkedin.com/company/odei-ai/">
+                    <span class="link-title">LinkedIn</span>
+                    <span class="link-desc">Company presence and external identity continuity.</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Company details</h2>
+            <p>
+                ODEI is operated by Anton Illarionov, registered sole proprietor in Budapest, Hungary
+                (Registration: 61955583, Tax ID: 91815600-1-42).
+            </p>
+            <p>
+                The company website is <a href="https://odei.ai/">odei.ai</a>. The operational product and public API
+                surfaces are served at <a href="https://api.odei.ai/">api.odei.ai</a>.
+            </p>
+            <p>
+                Contact: <a href="mailto:legal@odei.ai">legal@odei.ai</a>
+            </p>
+        </section>
+
+        <div class="footer">
+            Public company overview for ODEI. Last updated on March 10, 2026.
+        </div>
+    </main>
+</body>
+</html>

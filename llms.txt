@@ -4,6 +4,9 @@
 ODEI (Operational Decision and Execution Intelligence) provides a graph-native world model
 with constitutional safety guardrails for autonomous AI agents.
 
+## Company Overview
+Public company overview: https://odei.ai/company/
+
 ## API
 Base URL: https://api.odei.ai
 Documentation: https://api.odei.ai/integrate/

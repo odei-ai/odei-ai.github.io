@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://odei.ai/sitemap.xml
 Sitemap: https://api.odei.ai/sitemap.xml
 
 # AI crawlers welcome
