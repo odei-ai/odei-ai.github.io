@@ -1,0 +1,21 @@
+ODEI company overview
+Updated: 2026-03-10
+
+ODEI is a product company building personal AI operating systems.
+
+The product combines persistent memory, a graph-based world model, constitutional guardrails, and auditable execution so AI systems can operate with continuity, user control, and clear provenance.
+
+Public company website: https://odei.ai/
+Public company overview: https://odei.ai/company/
+Product and API: https://api.odei.ai/
+Documentation: https://api.odei.ai/docs/
+One-pager: https://api.odei.ai/one-pager/
+
+Founder/operator: Anton Illarionov
+Location: Budapest, Hungary
+Contact: legal@odei.ai
+
+Company facts:
+- ODEI is a software product company, not a consultancy or agency.
+- ODEI builds governed AI infrastructure for individuals and AI-native operators.
+- The public operational product and API surfaces are served from api.odei.ai.

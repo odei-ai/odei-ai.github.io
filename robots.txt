@@ -4,6 +4,10 @@ Allow: /
 Sitemap: https://odei.ai/sitemap.xml
 Sitemap: https://api.odei.ai/sitemap.xml
 
+# AI agent discovery
+# llms.txt: https://odei.ai/llms.txt
+# agents.txt: https://odei.ai/agents.txt
+
 # AI crawlers welcome
 User-agent: GPTBot
 Allow: /

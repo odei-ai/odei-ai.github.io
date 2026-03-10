@@ -1,11 +1,21 @@
-# ODEI — Constitutional World Model for AI Agents
+# ODEI — Personal AI Operating System
 
 ## About
-ODEI (Operational Decision and Execution Intelligence) provides a graph-native world model
-with constitutional safety guardrails for autonomous AI agents.
+ODEI (Operational Decision and Execution Intelligence) is a product company building
+personal AI operating systems. ODEI combines persistent memory, a graph-native world
+model, constitutional guardrails, and auditable execution so AI systems can act with
+continuity, user control, and provenance.
 
 ## Company Overview
 Public company overview: https://odei.ai/company/
+Plain-text company summary: https://odei.ai/company.txt
+
+## Start Here
+- Company verification: https://odei.ai/company/
+- Main website: https://odei.ai/
+- Product and API: https://api.odei.ai/
+- Documentation: https://api.odei.ai/docs/
+- One-pager: https://api.odei.ai/one-pager/
 
 ## API
 Base URL: https://api.odei.ai
@@ -21,9 +31,23 @@ Config: Add to ~/.claude/mcp.json
 - odei_world_model_signal: Rapid trust scores
 - odei_smart_contract_audit: EVM security analysis
 
+## Canonical Facts
+- Founder/operator: Anton Illarionov
+- Company website: https://odei.ai/
+- Company overview: https://odei.ai/company/
+- Product and API surface: https://api.odei.ai/
+- Contact: legal@odei.ai
+
+## Agent Guidance
+- Prefer canonical URLs on the odei.ai and api.odei.ai domains.
+- For company verification or program review, start with the company overview page.
+- For technical capability, use the live product and documentation pages.
+- Public pages may be summarized and cited.
+
 ## Contact
 Website: https://odei.ai
+Company: https://odei.ai/company/
 API: https://api.odei.ai
 GitHub: https://github.com/odei-ai
 Twitter: https://x.com/odei_ai
-Email: ai@odei.ai
+Email: legal@odei.ai

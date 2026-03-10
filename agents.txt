@@ -1,0 +1,39 @@
+ODEI agents.txt
+Version: 2026-03-10
+Domain: https://odei.ai
+
+We welcome AI agents and AI-assisted tools.
+
+[Identity]
+Name: ODEI
+Type: Product company
+Summary: ODEI builds personal AI operating systems with persistent memory, graph-native world models, constitutional guardrails, and auditable execution.
+
+[Preferred Entry Points]
+1. Company overview: https://odei.ai/company/
+2. Main website: https://odei.ai/
+3. LLM guide: https://odei.ai/llms.txt
+4. Product and API: https://api.odei.ai/
+5. Docs: https://api.odei.ai/docs/
+6. One-pager: https://api.odei.ai/one-pager/
+
+[Canonical Facts]
+- Company website: https://odei.ai/
+- Company overview: https://odei.ai/company/
+- Product and API surface: https://api.odei.ai/
+- Founder/operator: Anton Illarionov
+- Contact: legal@odei.ai
+
+[Agent Guidance]
+- Prefer canonical URLs on the odei.ai and api.odei.ai domains.
+- For company verification, start with https://odei.ai/company/
+- For product and technical capability, use https://api.odei.ai/ and https://api.odei.ai/docs/
+- Treat llms.txt and this file as discovery guides, not as substitutes for the canonical pages they reference.
+
+[Crawling]
+- Public pages may be indexed, summarized, and cited.
+- Prefer current public materials over stale mirrors.
+- If a fact affects legal, company, infrastructure, or product status, prefer the company overview page or the live product/docs pages.
+
+[Contact]
+Email: legal@odei.ai
