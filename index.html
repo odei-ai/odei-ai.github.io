@@ -5214,7 +5214,9 @@
         }
 
         .contrast-side.dead {
-            opacity: 0.6;
+            border-color: rgba(255, 255, 255, 0.12);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.015) 0%, rgba(0, 0, 0, 0.42) 100%);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.015);
         }
 
         .contrast-side.live {
@@ -5275,6 +5277,11 @@
             background: rgba(var(--jade-rgb), 0.05);
         }
 
+        .contrast-terminal.passive {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
         .contrast-terminal.empty {
             display: flex;
             align-items: center;
@@ -5310,6 +5317,23 @@
             line-height: 1.8;
         }
 
+        .contrast-side.dead .contrast-header {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .contrast-side.dead .contrast-icon {
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .contrast-side.dead .contrast-label {
+            color: rgba(255, 255, 255, 0.72);
+            opacity: 1;
+        }
+
+        .contrast-side.dead .term-line {
+            color: rgba(255, 255, 255, 0.56);
+        }
+
         .term-prompt {
             color: #666;
         }
@@ -5340,6 +5364,14 @@
             color: var(--status-maybe);
         }
 
+        .term-fail {
+            color: rgba(255, 123, 123, 0.82);
+        }
+
+        .term-dim {
+            color: rgba(255, 255, 255, 0.34);
+        }
+
         .term-action {
             color: var(--product-accent);
         }
@@ -5363,7 +5395,10 @@
         }
 
         .trait.negative {
-            opacity: 0.4;
+            opacity: 1;
+            color: rgba(255, 255, 255, 0.58);
+            border-color: rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .trait.positive {
@@ -14311,7 +14346,11 @@
                                 <span class="contrast-icon">○</span>
                                 <span class="contrast-label">TYPICAL ASSISTANT</span>
                             </div>
-                            <div class="contrast-terminal empty"></div>
+                            <div class="contrast-terminal passive" aria-label="Typical assistant limitations">
+                                <div class="term-line"><span class="term-dim">...</span> Waited for prompt</div>
+                                <div class="term-line"><span class="term-dim">...</span> Lost prior context</div>
+                                <div class="term-line"><span class="term-fail">x</span> No action executed</div>
+                            </div>
                             <div class="contrast-traits">
                                 <span class="trait negative">PROMPT-DRIVEN</span>
                                 <span class="trait negative">SESSION-BASED CONTEXT</span>
