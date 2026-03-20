@@ -13,7 +13,7 @@ One-pager: https://api.odei.ai/one-pager/
 
 Founder/operator: Anton Illarionov
 Location: Budapest, Hungary
-Contact: legal@odei.ai
+Contact: ai@odei.ai
 
 Company facts:
 - ODEI is a software product company, not a consultancy or agency.

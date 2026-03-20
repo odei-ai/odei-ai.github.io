@@ -22,7 +22,7 @@ Summary: ODEI builds personal AI operating systems with persistent memory, graph
 - Company overview: https://odei.ai/company/
 - Product and API surface: https://api.odei.ai/
 - Founder/operator: Anton Illarionov
-- Contact: legal@odei.ai
+- Contact: ai@odei.ai
 
 [Agent Guidance]
 - Prefer canonical URLs on the odei.ai and api.odei.ai domains.
@@ -36,4 +36,4 @@ Summary: ODEI builds personal AI operating systems with persistent memory, graph
 - If a fact affects legal, company, infrastructure, or product status, prefer the company overview page or the live product/docs pages.
 
 [Contact]
-Email: legal@odei.ai
+Email: ai@odei.ai

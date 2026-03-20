@@ -36,7 +36,7 @@ Config: Add to ~/.claude/mcp.json
 - Company website: https://odei.ai/
 - Company overview: https://odei.ai/company/
 - Product and API surface: https://api.odei.ai/
-- Contact: legal@odei.ai
+- Contact: ai@odei.ai
 
 ## Agent Guidance
 - Prefer canonical URLs on the odei.ai and api.odei.ai domains.
@@ -50,4 +50,4 @@ Company: https://odei.ai/company/
 API: https://api.odei.ai
 GitHub: https://github.com/odei-ai
 Twitter: https://x.com/odei_ai
-Email: legal@odei.ai
+Email: ai@odei.ai
