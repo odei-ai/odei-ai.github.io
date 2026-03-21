@@ -22,6 +22,8 @@ It sits alongside:
 - [research](https://github.com/odei-ai/research) for papers
 - [memory](https://github.com/odei-ai/memory) for memory architecture
 
+Last Pages workflow sync: 2026-03-21.
+
 ## Tech
 
 - static HTML and CSS
