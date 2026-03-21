@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - codex/pages-live
   workflow_dispatch:
 
 permissions:
