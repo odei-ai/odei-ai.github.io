@@ -11597,6 +11597,8 @@
 
         .timeline-section {
             position: relative;
+            --timeline-done-end: 20%;
+            --timeline-now-end: 40%;
         }
 
         .timeline-container {
@@ -11612,10 +11614,10 @@
             width: 2px;
             background: linear-gradient(to bottom,
                     var(--road-green) 0%,
-                    var(--road-green) 20%,
-                    var(--road-accent) 20%,
-                    var(--road-accent) 40%,
-                    rgba(255, 255, 255, 0.15) 40%,
+                    var(--road-green) var(--timeline-done-end),
+                    var(--road-accent) var(--timeline-done-end),
+                    var(--road-accent) var(--timeline-now-end),
+                    rgba(255, 255, 255, 0.15) var(--timeline-now-end),
                     rgba(255, 255, 255, 0.15) 100%);
         }
 
@@ -16515,6 +16517,24 @@
                 window.visualViewport.addEventListener('scroll', setAppHeight);
             }
             setAppHeight();
+
+            const syncRoadmapTimelineProgress = () => {
+                document.querySelectorAll('#roadmap .timeline-section').forEach((section) => {
+                    const markers = Array.from(section.querySelectorAll('.timeline-marker'));
+                    if (!markers.length) return;
+
+                    const doneCount = markers.filter((marker) => marker.classList.contains('done')).length;
+                    const nowCount = markers.some((marker) => marker.classList.contains('now')) ? 1 : 0;
+                    const total = markers.length;
+
+                    const doneEnd = `${(doneCount / total) * 100}%`;
+                    const nowEnd = `${((doneCount + nowCount) / total) * 100}%`;
+
+                    section.style.setProperty('--timeline-done-end', doneEnd);
+                    section.style.setProperty('--timeline-now-end', nowEnd);
+                });
+            };
+            syncRoadmapTimelineProgress();
 
             let currentPage = 0;
             const pages = document.querySelectorAll('.page');
