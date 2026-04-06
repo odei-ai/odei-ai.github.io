@@ -639,6 +639,10 @@
             animation-delay: 200ms;
         }
 
+        .nav-column:nth-child(2) .nav-item:nth-child(4).revealed {
+            animation-delay: 280ms;
+        }
+
         .nav-num {
             font-size: 0.7rem;
             font-family: var(--font-mono);
@@ -13919,6 +13923,10 @@
                                 <span class="nav-num">07</span>
                                 <span class="nav-name">Roadmap</span>
                             </a>
+                            <a href="https://api.odei.ai/research/governance-gap/" class="nav-item">
+                                <span class="nav-num">08</span>
+                                <span class="nav-name">Research</span>
+                            </a>
                         </div>
                     </nav>
 
@@ -16838,7 +16846,7 @@
             const prevButton = document.getElementById('prevButton');
             const nextButton = document.getElementById('nextButton');
             const progressBar = document.getElementById('progressBar');
-            const tocLinks = document.querySelectorAll('.toc-link, .nav-item');
+            const tocLinks = document.querySelectorAll('.toc-link, .nav-item[data-page]');
             let typingTimeout;
 
             // Track if user made YES/NO choice (for back button handling)
