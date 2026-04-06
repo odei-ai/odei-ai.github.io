@@ -12353,7 +12353,7 @@
         }
 
         .connect-page-new .content {
-            max-width: 550px;
+            max-width: 720px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -12435,188 +12435,199 @@
             margin-bottom: 2rem;
         }
 
-        .countdown-panel {
+        .connect-delivery-window {
             position: relative;
             overflow: hidden;
             width: 100%;
-            max-width: 420px;
-            margin: 0 auto 1rem;
-            padding: 1.05rem 1rem 0.95rem;
+            margin: 0 auto 1.15rem;
+            padding: 1.15rem 1.25rem;
             border: 1px solid rgba(var(--jade-rgb), 0.28);
+            border-radius: 20px;
             background:
-                linear-gradient(180deg, rgba(var(--jade-rgb), 0.1), rgba(0, 0, 0, 0.42)),
-                rgba(0, 0, 0, 0.3);
-            box-shadow: 0 0 32px rgba(var(--jade-rgb), 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
+                linear-gradient(180deg, rgba(var(--jade-rgb), 0.09), rgba(244, 201, 93, 0.045)),
+                rgba(10, 13, 20, 0.9);
+            box-shadow: 0 18px 48px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
         }
 
-        .countdown-panel::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(var(--jade-rgb), 0.75), transparent);
-        }
-
-        .countdown-panel::after {
+        .connect-delivery-window::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at top center, rgba(var(--jade-rgb), 0.14), transparent 60%);
+            background:
+                radial-gradient(circle at top right, rgba(var(--jade-rgb), 0.16), transparent 42%),
+                radial-gradient(circle at bottom left, rgba(244, 201, 93, 0.08), transparent 34%);
             pointer-events: none;
-            opacity: 0.65;
         }
 
-        .countdown-header {
+        .connect-delivery-window__header,
+        .connect-delivery-window__meta {
             position: relative;
             z-index: 1;
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
             gap: 1rem;
-            margin-bottom: 0.85rem;
+        }
+
+        .connect-delivery-window__header {
+            margin-bottom: 0.9rem;
+        }
+
+        .connect-delivery-window__eyebrow {
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--conn-accent);
+            opacity: 0.82;
+            margin-bottom: 0.45rem;
+        }
+
+        .connect-delivery-window__title {
+            font-size: 0.96rem;
+            line-height: 1.58;
+            color: #e8ecf4;
             text-align: left;
         }
 
-        .countdown-copy {
-            min-width: 0;
-        }
-
-        .countdown-label {
-            font-size: 0.58rem;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            opacity: 0.72;
-            margin-bottom: 0.42rem;
-        }
-
-        .countdown-title {
-            font-size: 0.84rem;
-            line-height: 1.45;
-            letter-spacing: 0.03em;
-            opacity: 0.8;
-        }
-
-        .countdown-pill {
+        .connect-delivery-window__pill {
             flex-shrink: 0;
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            padding: 0.42rem 0.7rem;
+            padding: 0.68rem 0.9rem;
+            border-radius: 999px;
             border: 1px solid rgba(var(--jade-rgb), 0.22);
-            background: rgba(var(--jade-rgb), 0.07);
-            font-size: 0.52rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
+            background: rgba(var(--jade-rgb), 0.1);
+            box-shadow: 0 10px 24px rgba(var(--jade-rgb), 0.08);
             color: var(--conn-accent);
+            font-size: 0.58rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
             white-space: nowrap;
         }
 
-        .countdown-pill::before {
+        .connect-delivery-window__pill::before {
             content: "";
-            width: 0.42rem;
-            height: 0.42rem;
+            width: 0.55rem;
+            height: 0.55rem;
             border-radius: 50%;
             background: var(--conn-accent);
             box-shadow: 0 0 12px rgba(var(--jade-rgb), 0.35);
         }
 
-        .countdown-grid {
+        .connect-delivery-window__status {
             position: relative;
             z-index: 1;
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 0.6rem;
-        }
-
-        .countdown-cell {
-            position: relative;
-            display: flex;
-            flex-direction: column;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            padding: 0.78rem 0.45rem 0.72rem;
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            gap: 0.65rem;
+            width: 100%;
+            margin-bottom: 0.9rem;
+            padding: 0.95rem 1rem;
+            border-radius: 14px;
+            border: 1px solid rgba(var(--jade-rgb), 0.2);
             background:
-                linear-gradient(180deg, rgba(var(--jade-rgb), 0.05), rgba(0, 0, 0, 0.28)),
-                rgba(0, 0, 0, 0.38);
-            min-height: 88px;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-        }
-
-        .countdown-cell::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 12px;
-            right: 12px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(var(--jade-rgb), 0.55), transparent);
-        }
-
-        .countdown-value {
-            display: block;
-            font-size: clamp(1.2rem, 3vw, 1.62rem);
-            line-height: 1;
-            letter-spacing: 0.06em;
-            color: var(--conn-accent);
-            text-shadow: 0 0 18px rgba(var(--jade-rgb), 0.24);
-        }
-
-        .countdown-unit {
-            display: block;
-            margin-top: 0.5rem;
-            font-size: 0.5rem;
-            letter-spacing: 0.22em;
+                linear-gradient(180deg, rgba(var(--jade-rgb), 0.09), rgba(255, 255, 255, 0.02)),
+                rgba(8, 12, 18, 0.72);
+            color: #dffcf7;
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            opacity: 0.5;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
         }
 
-        .countdown-meta {
+        .connect-delivery-window__status::before {
+            content: "";
+            width: 0.62rem;
+            height: 0.62rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4FD1C5, #F4C95D);
+            box-shadow: 0 0 0 4px rgba(var(--jade-rgb), 0.12);
+            flex-shrink: 0;
+        }
+
+        .connect-delivery-window__launch {
             position: relative;
             z-index: 1;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 0.8rem;
-            margin-top: 0.8rem;
+            gap: 1rem;
+            margin-top: 0.2rem;
+            padding: 1rem;
+            border-radius: 16px;
+            border: 1px solid rgba(var(--jade-rgb), 0.14);
+            background:
+                linear-gradient(135deg, rgba(var(--jade-rgb), 0.08), rgba(244, 201, 93, 0.04)),
+                rgba(5, 10, 16, 0.5);
+        }
+
+        .connect-delivery-window__launch-copy {
+            display: grid;
+            gap: 0.4rem;
             text-align: left;
         }
 
-        .countdown-status {
-            display: none;
-            padding: 0.85rem 1rem;
-            border: 1px solid rgba(var(--jade-rgb), 0.22);
-            background: rgba(var(--jade-rgb), 0.08);
+        .connect-delivery-window__launch-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
             color: var(--conn-accent);
-            font-size: 0.78rem;
+            opacity: 0.9;
+        }
+
+        .connect-delivery-window__launch-title {
+            color: #d8deea;
+            font-size: 0.86rem;
+            line-height: 1.65;
+        }
+
+        .connect-delivery-window__launch-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            min-height: 52px;
+            padding: 0 1.4rem;
+            border-radius: 999px;
+            border: 1px solid rgba(var(--jade-rgb), 0.22);
+            background: linear-gradient(135deg, rgba(79, 209, 197, 0.96), rgba(244, 201, 93, 0.88));
+            color: #071015;
+            font-size: 0.8rem;
+            font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
         }
 
-        .countdown-panel[data-countdown-state="complete"] .countdown-grid {
-            display: none;
+        .connect-delivery-window__launch-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px rgba(var(--jade-rgb), 0.18);
+            opacity: 0.96;
         }
 
-        .countdown-panel[data-countdown-state="complete"] .countdown-status {
-            display: block;
+        .connect-delivery-window__meta {
+            margin-top: 0.9rem;
         }
 
-        .countdown-deadline {
+        .connect-delivery-window__deadline,
+        .connect-delivery-window__hint {
             font-size: 0.62rem;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            opacity: 0.42;
         }
 
-        .countdown-hint {
-            font-size: 0.58rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--conn-accent);
-            opacity: 0.64;
+        .connect-delivery-window__deadline {
+            color: #8a96a8;
+            text-align: left;
+        }
+
+        .connect-delivery-window__hint {
+            color: #F4C95D;
+            opacity: 0.84;
             text-align: right;
         }
 
@@ -12708,24 +12719,20 @@
         }
 
         @media (max-width: 480px) {
-
-            .countdown-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+            .connect-delivery-window {
+                padding: 1rem;
+                border-radius: 18px;
             }
 
-            .countdown-header,
-            .countdown-meta {
+            .connect-delivery-window__header,
+            .connect-delivery-window__meta,
+            .connect-delivery-window__launch {
                 flex-direction: column;
                 align-items: stretch;
             }
 
-            .countdown-pill,
-            .countdown-hint {
-                align-self: flex-start;
-            }
-
-            .countdown-cell {
-                min-height: 74px;
+            .connect-delivery-window__launch-link {
+                width: 100%;
             }
 
             /* Only target page content social links, NOT footer */
@@ -16476,37 +16483,25 @@
 
                 <!-- ══════ PRIMARY CTA ══════ -->
                 <div class="connect-cta-section">
-                    <div class="countdown-panel" data-mvp-countdown data-countdown-state="active"
-                        data-countdown-deadline="2026-04-05T23:59:59+02:00">
-                        <div class="countdown-header">
-                            <div class="countdown-copy">
-                                <div class="countdown-label">Agent Builder MVP deadline</div>
-                                <div class="countdown-title">First cohort access window closes at the end of this week.</div>
+                    <div class="connect-delivery-window" aria-label="Agent Builder MVP delivered">
+                        <div class="connect-delivery-window__header">
+                            <div>
+                                <div class="connect-delivery-window__eyebrow">Agent Builder MVP</div>
+                                <div class="connect-delivery-window__title">On April 5, 2026 we shipped the public Agent Builder launch surface and the first ODEI desktop release lane.</div>
                             </div>
-                            <div class="countdown-pill">This week</div>
+                            <div class="connect-delivery-window__pill">Delivered</div>
                         </div>
-                        <div class="countdown-grid" aria-live="polite">
-                            <div class="countdown-cell">
-                                <span class="countdown-value" data-countdown-days>00</span>
-                                <span class="countdown-unit">Days</span>
+                        <div class="connect-delivery-window__status">Delivered</div>
+                        <div class="connect-delivery-window__launch">
+                            <div class="connect-delivery-window__launch-copy">
+                                <div class="connect-delivery-window__launch-label">Next Gate</div>
+                                <div class="connect-delivery-window__launch-title">Turn the first release lane into a consumer-grade desktop product: signed install, zero-manual first run, state persistence, and packaged updates on macOS and Windows.</div>
                             </div>
-                            <div class="countdown-cell">
-                                <span class="countdown-value" data-countdown-hours>00</span>
-                                <span class="countdown-unit">Hours</span>
-                            </div>
-                            <div class="countdown-cell">
-                                <span class="countdown-value" data-countdown-minutes>00</span>
-                                <span class="countdown-unit">Minutes</span>
-                            </div>
-                            <div class="countdown-cell">
-                                <span class="countdown-value" data-countdown-seconds>00</span>
-                                <span class="countdown-unit">Seconds</span>
-                            </div>
+                            <a href="https://app.odei.ai" class="connect-delivery-window__launch-link">app.odei.ai</a>
                         </div>
-                        <div class="countdown-status" data-countdown-status>MVP release window reached</div>
-                        <div class="countdown-meta">
-                            <div class="countdown-deadline">Closes Sunday · April 5 · 23:59 Budapest</div>
-                            <div class="countdown-hint">Request access before the first cohort closes</div>
+                        <div class="connect-delivery-window__meta">
+                            <div class="connect-delivery-window__deadline">Next gate · desktop GA hardening</div>
+                            <div class="connect-delivery-window__hint">Install + launch + persist + update with no terminal steps</div>
                         </div>
                     </div>
                     <a href="https://app.odei.ai" class="connect-cta-primary">
