@@ -1,9 +1,9 @@
 # ODEI — Personal AI Operating System
 
 ## About
-ODEI is a product company building personal AI operating systems — the governance
-layer for personal AI. ODEI combines persistent memory, a graph-native world model,
-constitutional guardrails, and auditable execution so AI systems can act with
+ODEI (Operational Decision and Execution Intelligence) is a product company building
+personal AI operating systems. ODEI combines persistent memory, a graph-native world
+model, constitutional guardrails, and auditable execution so AI systems can act with
 continuity, user control, and provenance.
 
 ## Company Overview
@@ -26,7 +26,7 @@ Install: npx @odei/mcp-server
 Config: Add to ~/.claude/mcp.json
 
 ## Tools
-- odei_world_model_query: Search 18,000+ node knowledge graph
+- odei_world_model_query: Search 10,665-node knowledge graph
 - odei_guardrail_check: 7-layer constitutional safety validation
 - odei_world_model_signal: Rapid trust scores
 - odei_smart_contract_audit: EVM security analysis

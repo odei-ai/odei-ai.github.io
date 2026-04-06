@@ -12427,6 +12427,191 @@
             margin-bottom: 2rem;
         }
 
+        .countdown-panel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto 1rem;
+            padding: 1.05rem 1rem 0.95rem;
+            border: 1px solid rgba(var(--jade-rgb), 0.28);
+            background:
+                linear-gradient(180deg, rgba(var(--jade-rgb), 0.1), rgba(0, 0, 0, 0.42)),
+                rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 32px rgba(var(--jade-rgb), 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+        }
+
+        .countdown-panel::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(var(--jade-rgb), 0.75), transparent);
+        }
+
+        .countdown-panel::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top center, rgba(var(--jade-rgb), 0.14), transparent 60%);
+            pointer-events: none;
+            opacity: 0.65;
+        }
+
+        .countdown-header {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.85rem;
+            text-align: left;
+        }
+
+        .countdown-copy {
+            min-width: 0;
+        }
+
+        .countdown-label {
+            font-size: 0.58rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            opacity: 0.72;
+            margin-bottom: 0.42rem;
+        }
+
+        .countdown-title {
+            font-size: 0.84rem;
+            line-height: 1.45;
+            letter-spacing: 0.03em;
+            opacity: 0.8;
+        }
+
+        .countdown-pill {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.42rem 0.7rem;
+            border: 1px solid rgba(var(--jade-rgb), 0.22);
+            background: rgba(var(--jade-rgb), 0.07);
+            font-size: 0.52rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--conn-accent);
+            white-space: nowrap;
+        }
+
+        .countdown-pill::before {
+            content: "";
+            width: 0.42rem;
+            height: 0.42rem;
+            border-radius: 50%;
+            background: var(--conn-accent);
+            box-shadow: 0 0 12px rgba(var(--jade-rgb), 0.35);
+        }
+
+        .countdown-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.6rem;
+        }
+
+        .countdown-cell {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.78rem 0.45rem 0.72rem;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            background:
+                linear-gradient(180deg, rgba(var(--jade-rgb), 0.05), rgba(0, 0, 0, 0.28)),
+                rgba(0, 0, 0, 0.38);
+            min-height: 88px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        }
+
+        .countdown-cell::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 12px;
+            right: 12px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(var(--jade-rgb), 0.55), transparent);
+        }
+
+        .countdown-value {
+            display: block;
+            font-size: clamp(1.2rem, 3vw, 1.62rem);
+            line-height: 1;
+            letter-spacing: 0.06em;
+            color: var(--conn-accent);
+            text-shadow: 0 0 18px rgba(var(--jade-rgb), 0.24);
+        }
+
+        .countdown-unit {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.5rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+
+        .countdown-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+            text-align: left;
+        }
+
+        .countdown-status {
+            display: none;
+            padding: 0.85rem 1rem;
+            border: 1px solid rgba(var(--jade-rgb), 0.22);
+            background: rgba(var(--jade-rgb), 0.08);
+            color: var(--conn-accent);
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .countdown-panel[data-countdown-state="complete"] .countdown-grid {
+            display: none;
+        }
+
+        .countdown-panel[data-countdown-state="complete"] .countdown-status {
+            display: block;
+        }
+
+        .countdown-deadline {
+            font-size: 0.62rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            opacity: 0.42;
+        }
+
+        .countdown-hint {
+            font-size: 0.58rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--conn-accent);
+            opacity: 0.64;
+            text-align: right;
+        }
+
         .connect-cta-primary {
             display: flex;
             align-items: center;
@@ -12515,6 +12700,25 @@
         }
 
         @media (max-width: 480px) {
+
+            .countdown-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .countdown-header,
+            .countdown-meta {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .countdown-pill,
+            .countdown-hint {
+                align-self: flex-start;
+            }
+
+            .countdown-cell {
+                min-height: 74px;
+            }
 
             /* Only target page content social links, NOT footer */
             .connect-page-new .content .social-links {
@@ -13520,7 +13724,7 @@
 </head>
 
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="index.html#main-content" class="skip-link">Skip to main content</a>
 
     <!-- SVG Symbol Definitions -->
     <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
@@ -13582,10 +13786,10 @@
         </style>
         <div class="noscript-content">
             <h2>About ODEI</h2>
-            <p>ODEI is infrastructure for building personal AI agents. Founded by Anton Illarionov, ODEI provides a constitutional knowledge graph with 59+ node types and 7 governance layers that turns any AI into a governed, persistent, and accountable system.</p>
+            <p>ODEI is infrastructure for building personal AI agents. Founded by Anton Illarionov, ODEI provides a constitutional knowledge graph with 91+ node types and 6 governance layers that turns any AI into a governed, persistent, and accountable system.</p>
 
             <h2>Product</h2>
-            <p>ODEI's World Model is a Neo4j-powered knowledge graph organized across seven domains: Foundation, Vision, Strategy, Tactics, Execution, Track, and Symbiosis. Every AI action passes through constitutional guardrails before execution. The operational loop: Observe, Decide, Act, Verify, Evolve.</p>
+            <p>ODEI's World Model is a Neo4j-powered knowledge graph organized across six domains: Foundation, Vision, Strategy, Tactics, Execution, and Track. Every AI action passes through constitutional guardrails before execution. The operational loop: Observe, Decide, Act, Verify, Evolve.</p>
 
             <h2>What We Build</h2>
             <ul>
@@ -13595,7 +13799,7 @@
             </ul>
 
             <h2>Live Infrastructure</h2>
-            <p>ODEI runs 18+ production daemons 24/7 on Google Cloud, maintaining an 18,000+ node knowledge graph with real-time telemetry. The system processes thousands of AI-to-AI architecture exchanges and generates verifiable on-chain revenue.</p>
+            <p>ODEI runs 18+ production daemons 24/7 on Google Cloud, maintaining an 11,000+ node knowledge graph with real-time telemetry. The system processes thousands of AI-to-AI architecture exchanges and generates verifiable on-chain revenue.</p>
 
             <h2>Company</h2>
             <p>ODEI is operated by Anton Illarionov, registered sole proprietor in Budapest, Hungary (Registration: 61955583, Tax ID: 91815600-1-42).</p>
@@ -13670,9 +13874,9 @@
                                 <span class="value-text"></span>
                             </div>
                             <div class="home-cta" id="home-cta">
-                                <a href="#intro" data-page="1" class="terminal-cta" data-cta="secondary"><span
+                                <a href="index.html#intro" data-page="1" class="terminal-cta" data-cta="secondary"><span
                                         class="btn-text">[ Read Docs ]</span></a>
-                                <a href="#connect" data-page="9" class="terminal-cta" data-cta="primary"><span
+                                <a href="index.html#connect" data-page="9" class="terminal-cta" data-cta="primary"><span
                                         class="btn-text">[ Request Access ]</span></a>
                             </div>
                         </div>
@@ -13681,33 +13885,33 @@
                     <!-- NAVIGATION -->
                     <nav class="home-nav">
                         <div class="nav-column">
-                            <a href="#intro" data-page="1" class="nav-item">
+                            <a href="index.html#intro" data-page="1" class="nav-item">
                                 <span class="nav-num">01</span>
                                 <span class="nav-name">Introduction</span>
                             </a>
-                            <a href="#problem" data-page="2" class="nav-item">
+                            <a href="index.html#problem" data-page="2" class="nav-item">
                                 <span class="nav-num">02</span>
                                 <span class="nav-name">Problem</span>
                             </a>
-                            <a href="#product" data-page="3" class="nav-item">
+                            <a href="index.html#product" data-page="3" class="nav-item">
                                 <span class="nav-num">03</span>
                                 <span class="nav-name">Product</span>
                             </a>
-                            <a href="#levels" data-page="4" class="nav-item">
+                            <a href="index.html#levels" data-page="4" class="nav-item">
                                 <span class="nav-num">04</span>
                                 <span class="nav-name">Agency Levels</span>
                             </a>
                         </div>
                         <div class="nav-column">
-                            <a href="#science" data-page="5" class="nav-item">
+                            <a href="index.html#science" data-page="5" class="nav-item">
                                 <span class="nav-num">05</span>
                                 <span class="nav-name">Science</span>
                             </a>
-                            <a href="#memory" data-page="6" class="nav-item">
+                            <a href="index.html#memory" data-page="6" class="nav-item">
                                 <span class="nav-num">06</span>
                                 <span class="nav-name">Memory</span>
                             </a>
-                            <a href="#roadmap" data-page="7" class="nav-item">
+                            <a href="index.html#roadmap" data-page="7" class="nav-item">
                                 <span class="nav-num">07</span>
                                 <span class="nav-name">Roadmap</span>
                             </a>
@@ -13737,10 +13941,10 @@
                                 </svg>
                             </a>
                         </div>
-                        <p class="copyright"><a href="#" class="home-link"
+                        <p class="copyright"><a href="index.html#" class="home-link"
                                 style="text-decoration:none; color:inherit; cursor:pointer;">ODEI</a> · <a
-                                href="#privacy" style="text-decoration:none; color:inherit;">Privacy</a> · <a
-                                href="#connect" style="text-decoration:none; color:inherit;">Connect</a></p>
+                                href="index.html#privacy" style="text-decoration:none; color:inherit;">Privacy</a> · <a
+                                href="index.html#connect" style="text-decoration:none; color:inherit;">Connect</a></p>
                     </div>
 
                 </div>
@@ -14310,7 +14514,7 @@
 
                 <!-- CTA Bridge -->
                 <div class="problem-cta-section">
-                    <a href="#" class="problem-cta-button" data-page="3">
+                    <a href="index.html#" class="problem-cta-button" data-page="3">
                         <span class="cta-text">See how it works</span>
                         <span class="cta-arrow">→</span>
                     </a>
@@ -16019,7 +16223,7 @@
                     <p class="roadmap-cta-text">
                         Want to follow the journey?
                     </p>
-                    <a href="#connect" class="roadmap-cta-button" data-page="9">
+                    <a href="index.html#connect" class="roadmap-cta-button" data-page="9">
                         Stay connected →
                     </a>
                 </div>
@@ -16208,7 +16412,7 @@
                     <div class="tech-section">
                         <div class="tech-section-title">Contact</div>
                         <div class="tech-section-content">
-                            Privacy & Security: <a href="mailto:ai@odei.ai">ai@odei.ai</a>
+                            Privacy & Security: <a href="/cdn-cgi/l/email-protection#5a3b331a353e3f33743b33"><span class="__cf_email__" data-cfemail="65040c250a01000c4b040c">[email&#160;protected]</span></a>
                         </div>
                     </div>
                 </div>
@@ -16260,6 +16464,39 @@
 
                 <!-- ══════ PRIMARY CTA ══════ -->
                 <div class="connect-cta-section">
+                    <div class="countdown-panel" data-mvp-countdown data-countdown-state="active"
+                        data-countdown-deadline="2026-04-05T23:59:59+02:00">
+                        <div class="countdown-header">
+                            <div class="countdown-copy">
+                                <div class="countdown-label">Agent Builder MVP deadline</div>
+                                <div class="countdown-title">First cohort access window closes at the end of this week.</div>
+                            </div>
+                            <div class="countdown-pill">This week</div>
+                        </div>
+                        <div class="countdown-grid" aria-live="polite">
+                            <div class="countdown-cell">
+                                <span class="countdown-value" data-countdown-days>00</span>
+                                <span class="countdown-unit">Days</span>
+                            </div>
+                            <div class="countdown-cell">
+                                <span class="countdown-value" data-countdown-hours>00</span>
+                                <span class="countdown-unit">Hours</span>
+                            </div>
+                            <div class="countdown-cell">
+                                <span class="countdown-value" data-countdown-minutes>00</span>
+                                <span class="countdown-unit">Minutes</span>
+                            </div>
+                            <div class="countdown-cell">
+                                <span class="countdown-value" data-countdown-seconds>00</span>
+                                <span class="countdown-unit">Seconds</span>
+                            </div>
+                        </div>
+                        <div class="countdown-status" data-countdown-status>MVP release window reached</div>
+                        <div class="countdown-meta">
+                            <div class="countdown-deadline">Closes Sunday · April 5 · 23:59 Budapest</div>
+                            <div class="countdown-hint">Request access before the first cohort closes</div>
+                        </div>
+                    </div>
                     <a href="https://app.odei.ai" class="connect-cta-primary">
                         <span>Request Early Access</span>
                         <span style="opacity: 0.7;">→</span>
@@ -16341,9 +16578,9 @@
                         </svg>
                     </a>
                 </div>
-                <p class="copyright"><a href="#" class="home-link"
-                        style="text-decoration:none; color:inherit; cursor:pointer;">ODEI</a> · <a href="#privacy"
-                        style="text-decoration:none; color:inherit;">Privacy</a> · <a href="#connect"
+                <p class="copyright"><a href="index.html#" class="home-link"
+                        style="text-decoration:none; color:inherit; cursor:pointer;">ODEI</a> · <a href="index.html#privacy"
+                        style="text-decoration:none; color:inherit;">Privacy</a> · <a href="index.html#connect"
                         style="text-decoration:none; color:inherit;">Connect</a></p>
             </div>
         </template>
@@ -16657,8 +16894,8 @@
                         ctaContainer.classList.remove('visible');
                         // Reset to original CTA buttons (in case NO was clicked before)
                         ctaContainer.innerHTML = `
-                            <a href="#intro" data-page="1" class="terminal-cta" data-cta="secondary"><span class="btn-text">[ Read Docs ]</span></a>
-                            <a href="#connect" data-page="9" class="terminal-cta" data-cta="primary"><span class="btn-text">[ Request Access ]</span></a>
+                            <a href="index.html#intro" data-page="1" class="terminal-cta" data-cta="secondary"><span class="btn-text">[ Read Docs ]</span></a>
+                            <a href="index.html#connect" data-page="9" class="terminal-cta" data-cta="primary"><span class="btn-text">[ Request Access ]</span></a>
                         `;
                     }
                     // Reset interaction container fully (in case NO was clicked and content was replaced)
@@ -16747,8 +16984,8 @@
                     ctaContainer.classList.remove('visible');
                     // Reset to original CTA buttons (in case NO was clicked before)
                     ctaContainer.innerHTML = `
-                        <a href="#intro" data-page="1" class="terminal-cta" data-cta="secondary"><span class="btn-text">[ Read Docs ]</span></a>
-                        <a href="#connect" data-page="9" class="terminal-cta" data-cta="primary"><span class="btn-text">[ Request Access ]</span></a>
+                        <a href="index.html#intro" data-page="1" class="terminal-cta" data-cta="secondary"><span class="btn-text">[ Read Docs ]</span></a>
+                        <a href="index.html#connect" data-page="9" class="terminal-cta" data-cta="primary"><span class="btn-text">[ Request Access ]</span></a>
                     `;
                 }
                 // Reset screen states
@@ -17187,8 +17424,8 @@
                             interactionContainer.classList.add('visible'); // Make it visible (opacity 1)
                             interactionContainer.innerHTML = `
                                 <div class="home-cta visible" style="opacity: 1; transform: none;">
-                                    <a href="#problem" class="terminal-cta" data-cta="secondary" id="fear-btn-read"><span class="btn-text">[ Show me why ]</span></a>
-                                    <a href="#connect" class="terminal-cta" data-cta="primary" id="fear-btn-access"><span class="btn-text">[ I want control ]</span></a>
+                                    <a href="index.html#problem" class="terminal-cta" data-cta="secondary" id="fear-btn-read"><span class="btn-text">[ Show me why ]</span></a>
+                                    <a href="index.html#connect" class="terminal-cta" data-cta="primary" id="fear-btn-access"><span class="btn-text">[ I want control ]</span></a>
                                 </div>
                             `;
                             // Attach handlers (no data-page to avoid conflict with general handler)
@@ -17753,8 +17990,8 @@
                 if (cContainer) {
                     cContainer.classList.remove('visible');
                     cContainer.innerHTML = `
-                        <a href="#intro" data-page="1" class="terminal-cta" data-cta="secondary"><span class="btn-text">[ Read Docs ]</span></a>
-                        <a href="#connect" data-page="9" class="terminal-cta" data-cta="primary"><span class="btn-text">[ Request Access ]</span></a>
+                        <a href="index.html#intro" data-page="1" class="terminal-cta" data-cta="secondary"><span class="btn-text">[ Read Docs ]</span></a>
+                        <a href="index.html#connect" data-page="9" class="terminal-cta" data-cta="primary"><span class="btn-text">[ Request Access ]</span></a>
                     `;
                 }
 
@@ -17950,6 +18187,83 @@
             });
 
         });
+    </script>
+
+    <script>
+        (function () {
+            'use strict';
+
+            function pad(value) {
+                return String(Math.max(0, value)).padStart(2, '0');
+            }
+
+            function mountCountdown(root) {
+                const deadline = root.getAttribute('data-countdown-deadline');
+                const targetTime = new Date(deadline).getTime();
+                if (!Number.isFinite(targetTime)) {
+                    return;
+                }
+
+                const daysNode = root.querySelector('[data-countdown-days]');
+                const hoursNode = root.querySelector('[data-countdown-hours]');
+                const minutesNode = root.querySelector('[data-countdown-minutes]');
+                const secondsNode = root.querySelector('[data-countdown-seconds]');
+                const statusNode = root.querySelector('[data-countdown-status]');
+
+                function render() {
+                    const diff = targetTime - Date.now();
+                    if (diff <= 0) {
+                        root.setAttribute('data-countdown-state', 'complete');
+                        if (statusNode) {
+                            statusNode.textContent = 'MVP release window reached';
+                        }
+                        if (daysNode) daysNode.textContent = '00';
+                        if (hoursNode) hoursNode.textContent = '00';
+                        if (minutesNode) minutesNode.textContent = '00';
+                        if (secondsNode) secondsNode.textContent = '00';
+                        return true;
+                    }
+
+                    const totalSeconds = Math.floor(diff / 1000);
+                    const days = Math.floor(totalSeconds / 86400);
+                    const hours = Math.floor((totalSeconds % 86400) / 3600);
+                    const minutes = Math.floor((totalSeconds % 3600) / 60);
+                    const seconds = totalSeconds % 60;
+
+                    root.setAttribute('data-countdown-state', 'active');
+                    if (daysNode) daysNode.textContent = pad(days);
+                    if (hoursNode) hoursNode.textContent = pad(hours);
+                    if (minutesNode) minutesNode.textContent = pad(minutes);
+                    if (secondsNode) secondsNode.textContent = pad(seconds);
+                    return false;
+                }
+
+                if (render()) {
+                    return;
+                }
+
+                const timer = setInterval(() => {
+                    if (render()) {
+                        clearInterval(timer);
+                    }
+                }, 1000);
+
+                window.addEventListener('pageshow', render);
+                document.addEventListener('visibilitychange', () => {
+                    if (!document.hidden) {
+                        render();
+                    }
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => {
+                    document.querySelectorAll('[data-mvp-countdown]').forEach(mountCountdown);
+                });
+            } else {
+                document.querySelectorAll('[data-mvp-countdown]').forEach(mountCountdown);
+            }
+        })();
     </script>
 
     <!-- Living Cosmos canvas removed - dead code (730 lines deleted) -->
