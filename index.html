@@ -3018,7 +3018,8 @@
             margin-top: auto;
         }
 
-        /* Hide page footer on Home and Connect (they use global fixed footer) */
+        /* Hide page footer on Home and Connect.
+           Home uses the global fixed footer; Connect has its own in-page contact block. */
         #home .site-footer,
         #connect .site-footer {
             display: none !important;
@@ -3043,9 +3044,12 @@
         }
 
         /* Add padding to pages with fixed footer to prevent content overlap */
-        #home,
-        #connect {
+        #home {
             padding-bottom: 90px !important;
+        }
+
+        #connect {
+            padding-bottom: 2rem !important;
         }
 
         .social-links {
@@ -16810,7 +16814,7 @@
             }
 
             // Footer strategy:
-            // - Home (page 0) & Connect (page 9): FIXED footer at viewport bottom
+            // - Home (page 0): FIXED footer at viewport bottom
             // - All other pages: footer scrolls with content
             const footerTemplate = document.getElementById('site-footer-template');
             if (footerTemplate) {
@@ -16820,7 +16824,7 @@
                     page.appendChild(pageFooter);
                 });
 
-                // Create global fixed footer (for Home/Connect)
+                // Create global fixed footer (for Home only)
                 const globalFixedFooter = footerTemplate.content.cloneNode(true);
                 const wrapper = document.createElement('div');
                 wrapper.id = 'global-fixed-footer';
@@ -17877,13 +17881,13 @@
                 }
             }
 
-            // Show fixed footer only on Home (0) and Connect (9)
+            // Show fixed footer only on Home (0)
             function updateFixedFooter(pageIndex) {
                 const fixedFooter = document.getElementById('global-fixed-footer');
                 if (!fixedFooter) return;
 
-                // Pages with fixed footer: Home (0), Connect (9)
-                const fixedFooterPages = [0, 9];
+                // Pages with fixed footer: Home (0)
+                const fixedFooterPages = [0];
                 if (fixedFooterPages.includes(pageIndex)) {
                     fixedFooter.classList.add('visible');
                 } else {
