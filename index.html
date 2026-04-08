@@ -12475,18 +12475,51 @@
             margin-bottom: 0.9rem;
         }
 
+        .connect-delivery-window__copy {
+            display: grid;
+            gap: 0.45rem;
+            min-width: 0;
+            text-align: left;
+        }
+
+        .connect-delivery-window__eyebrow-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
         .connect-delivery-window__eyebrow {
             font-size: 0.62rem;
             letter-spacing: 0.18em;
             text-transform: uppercase;
             color: var(--conn-accent);
             opacity: 0.82;
-            margin-bottom: 0.45rem;
+        }
+
+        .connect-delivery-window__ship-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.38rem;
+            font-size: 0.58rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #8fa0b4;
+        }
+
+        .connect-delivery-window__ship-date::before {
+            content: "";
+            width: 0.34rem;
+            height: 0.34rem;
+            border-radius: 50%;
+            background: var(--conn-accent);
+            box-shadow: 0 0 10px rgba(var(--jade-rgb), 0.3);
+            flex-shrink: 0;
         }
 
         .connect-delivery-window__title {
-            font-size: 0.96rem;
-            line-height: 1.58;
+            font-size: 1rem;
+            line-height: 1.62;
             color: #e8ecf4;
             text-align: left;
         }
@@ -12496,7 +12529,8 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            padding: 0.68rem 0.9rem;
+            align-self: flex-start;
+            padding: 0.74rem 1rem;
             border-radius: 999px;
             border: 1px solid rgba(var(--jade-rgb), 0.22);
             background: rgba(var(--jade-rgb), 0.1);
@@ -12515,37 +12549,6 @@
             border-radius: 50%;
             background: var(--conn-accent);
             box-shadow: 0 0 12px rgba(var(--jade-rgb), 0.35);
-        }
-
-        .connect-delivery-window__status {
-            position: relative;
-            z-index: 1;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.65rem;
-            width: 100%;
-            margin-bottom: 0.9rem;
-            padding: 0.95rem 1rem;
-            border-radius: 14px;
-            border: 1px solid rgba(var(--jade-rgb), 0.2);
-            background:
-                linear-gradient(180deg, rgba(var(--jade-rgb), 0.09), rgba(255, 255, 255, 0.02)),
-                rgba(8, 12, 18, 0.72);
-            color: #dffcf7;
-            font-size: 0.78rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-        }
-
-        .connect-delivery-window__status::before {
-            content: "";
-            width: 0.62rem;
-            height: 0.62rem;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #4FD1C5, #F4C95D);
-            box-shadow: 0 0 0 4px rgba(var(--jade-rgb), 0.12);
-            flex-shrink: 0;
         }
 
         .connect-delivery-window__launch {
@@ -12611,6 +12614,8 @@
 
         .connect-delivery-window__meta {
             margin-top: 0.9rem;
+            padding-top: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .connect-delivery-window__deadline,
@@ -12720,8 +12725,8 @@
 
         @media (max-width: 480px) {
             .connect-delivery-window {
-                padding: 1rem;
-                border-radius: 18px;
+                padding: 1.1rem 1rem;
+                border-radius: 20px;
             }
 
             .connect-delivery-window__header,
@@ -12731,8 +12736,45 @@
                 align-items: stretch;
             }
 
+            .connect-delivery-window__header {
+                gap: 0.85rem;
+            }
+
+            .connect-delivery-window__eyebrow-row {
+                gap: 0.5rem;
+            }
+
+            .connect-delivery-window__title {
+                font-size: 0.98rem;
+                line-height: 1.64;
+            }
+
+            .connect-delivery-window__pill {
+                width: fit-content;
+            }
+
+            .connect-delivery-window__launch {
+                gap: 0.9rem;
+                padding: 0.95rem;
+                border-radius: 18px;
+            }
+
+            .connect-delivery-window__launch-title {
+                font-size: 0.92rem;
+                line-height: 1.68;
+            }
+
+            .connect-delivery-window__meta {
+                gap: 0.5rem;
+            }
+
+            .connect-delivery-window__hint {
+                text-align: left;
+            }
+
             .connect-delivery-window__launch-link {
                 width: 100%;
+                min-height: 54px;
             }
 
             /* Only target page content social links, NOT footer */
@@ -16485,13 +16527,15 @@
                 <div class="connect-cta-section">
                     <div class="connect-delivery-window" aria-label="Agent Builder MVP delivered">
                         <div class="connect-delivery-window__header">
-                            <div>
-                                <div class="connect-delivery-window__eyebrow">Agent Builder MVP</div>
+                            <div class="connect-delivery-window__copy">
+                                <div class="connect-delivery-window__eyebrow-row">
+                                    <div class="connect-delivery-window__eyebrow">Agent Builder MVP</div>
+                                    <div class="connect-delivery-window__ship-date">Shipped · Apr 5, 2026</div>
+                                </div>
                                 <div class="connect-delivery-window__title">On April 5, 2026 we shipped the public Agent Builder launch surface and the first ODEI desktop release lane.</div>
                             </div>
                             <div class="connect-delivery-window__pill">Delivered</div>
                         </div>
-                        <div class="connect-delivery-window__status">Delivered</div>
                         <div class="connect-delivery-window__launch">
                             <div class="connect-delivery-window__launch-copy">
                                 <div class="connect-delivery-window__launch-label">Next Gate</div>
