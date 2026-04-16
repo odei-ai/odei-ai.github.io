@@ -13933,8 +13933,8 @@
                             <div class="home-cta" id="home-cta">
                                 <a href="index.html#intro" data-page="1" class="terminal-cta" data-cta="secondary"><span
                                         class="btn-text">[ Read Docs ]</span></a>
-                                <a href="index.html#connect" data-page="9" class="terminal-cta" data-cta="primary"><span
-                                        class="btn-text">[ Request Access ]</span></a>
+                                <a href="https://app.odei.ai" class="terminal-cta" data-cta="primary"><span
+                                        class="btn-text">[ Start in App ]</span></a>
                             </div>
                         </div>
                     </div>
@@ -16946,7 +16946,7 @@
                         // Reset to original CTA buttons (in case NO was clicked before)
                         ctaContainer.innerHTML = `
                             <a href="index.html#intro" data-page="1" class="terminal-cta" data-cta="secondary"><span class="btn-text">[ Read Docs ]</span></a>
-                            <a href="index.html#connect" data-page="9" class="terminal-cta" data-cta="primary"><span class="btn-text">[ Request Access ]</span></a>
+                            <a href="https://app.odei.ai" class="terminal-cta" data-cta="primary"><span class="btn-text">[ Start in App ]</span></a>
                         `;
                     }
                     // Reset interaction container fully (in case NO was clicked and content was replaced)
@@ -17036,7 +17036,7 @@
                     // Reset to original CTA buttons (in case NO was clicked before)
                     ctaContainer.innerHTML = `
                         <a href="index.html#intro" data-page="1" class="terminal-cta" data-cta="secondary"><span class="btn-text">[ Read Docs ]</span></a>
-                        <a href="index.html#connect" data-page="9" class="terminal-cta" data-cta="primary"><span class="btn-text">[ Request Access ]</span></a>
+                        <a href="https://app.odei.ai" class="terminal-cta" data-cta="primary"><span class="btn-text">[ Start in App ]</span></a>
                     `;
                 }
                 // Reset screen states
@@ -17292,10 +17292,12 @@
                             // Re-attach event listeners for CTA buttons
                             const ctaLinks = ctaContainer.querySelectorAll('.terminal-cta');
                             ctaLinks.forEach(link => {
+                                if (!link.hasAttribute('data-page')) {
+                                    return;
+                                }
                                 link.addEventListener('click', (e) => {
                                     e.preventDefault();
-                                    const pageNum = parseInt(link.getAttribute('data-page') || '1');
-                                    goToPage(pageNum);
+                                    goToPage(parseInt(link.getAttribute('data-page'), 10));
                                 });
                             });
                         }
@@ -18042,7 +18044,7 @@
                     cContainer.classList.remove('visible');
                     cContainer.innerHTML = `
                         <a href="index.html#intro" data-page="1" class="terminal-cta" data-cta="secondary"><span class="btn-text">[ Read Docs ]</span></a>
-                        <a href="index.html#connect" data-page="9" class="terminal-cta" data-cta="primary"><span class="btn-text">[ Request Access ]</span></a>
+                        <a href="https://app.odei.ai" class="terminal-cta" data-cta="primary"><span class="btn-text">[ Start in App ]</span></a>
                     `;
                 }
 
