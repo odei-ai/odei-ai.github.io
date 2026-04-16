@@ -17478,17 +17478,13 @@
                             interactionContainer.innerHTML = `
                                 <div class="home-cta visible" style="opacity: 1; transform: none;">
                                     <a href="index.html#problem" class="terminal-cta" data-cta="secondary" id="fear-btn-read"><span class="btn-text">[ Show me why ]</span></a>
-                                    <a href="index.html#connect" class="terminal-cta" data-cta="primary" id="fear-btn-access"><span class="btn-text">[ I want control ]</span></a>
+                                    <a href="https://app.odei.ai" class="terminal-cta" data-cta="primary" id="fear-btn-access"><span class="btn-text">[ I want control ]</span></a>
                                 </div>
                             `;
                             // Attach handlers (no data-page to avoid conflict with general handler)
                             document.getElementById('fear-btn-read')?.addEventListener('click', (e) => {
                                 e.preventDefault();
                                 goToPage(2);
-                            });
-                            document.getElementById('fear-btn-access')?.addEventListener('click', (e) => {
-                                e.preventDefault();
-                                goToPage(9);
                             });
                         }
                         // Reveal navigation
