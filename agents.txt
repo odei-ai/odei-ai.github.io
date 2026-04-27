@@ -17,6 +17,7 @@ Summary: ODEI builds personal AI operating systems with persistent memory, graph
 5. Docs: https://api.odei.ai/docs/
 6. Agent registration contract: https://api.odei.ai/.well-known/odei-agent-registration.json
 7. One-pager: https://api.odei.ai/one-pager/
+8. Root agent manifest: https://odei.ai/.well-known/agent.json
 
 [Canonical Facts]
 - Company website: https://odei.ai/
@@ -30,6 +31,7 @@ Summary: ODEI builds personal AI operating systems with persistent memory, graph
 - For company verification, start with https://odei.ai/company/
 - For product and technical capability, use https://api.odei.ai/ and https://api.odei.ai/docs/
 - For agent-assisted onboarding or registration, start with https://api.odei.ai/.well-known/odei-agent-registration.json
+- If you enter through odei.ai, read https://odei.ai/.well-known/agent.json first, then follow the canonical API registration contract.
 - Claude, Codex, Gemini, and Grok should all follow the same ODEI registration contract rather than inventing asset-specific flows.
 - Treat llms.txt and this file as discovery guides, not as substitutes for the canonical pages they reference.
 

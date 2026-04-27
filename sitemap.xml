@@ -25,6 +25,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://odei.ai/.well-known/agent.json</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://odei.ai/company.txt</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>

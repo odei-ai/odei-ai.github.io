@@ -16,6 +16,7 @@ Plain-text company summary: https://odei.ai/company.txt
 - Product and API: https://api.odei.ai/
 - Documentation: https://api.odei.ai/docs/
 - Agent registration contract: https://api.odei.ai/.well-known/odei-agent-registration.json
+- Root agent manifest: https://odei.ai/.well-known/agent.json
 - One-pager: https://api.odei.ai/one-pager/
 
 ## API
@@ -44,6 +45,7 @@ Config: Add to ~/.claude/mcp.json
 - For company verification or program review, start with the company overview page.
 - For technical capability, use the live product and documentation pages.
 - For agent-assisted registration, read https://api.odei.ai/.well-known/odei-agent-registration.json before guiding or submitting onboarding.
+- If the session starts from odei.ai, read https://odei.ai/.well-known/agent.json first, then follow the canonical API registration contract.
 - Claude, Codex, Gemini, and Grok should all use that same canonical registration contract.
 - Public pages may be summarized and cited.
 

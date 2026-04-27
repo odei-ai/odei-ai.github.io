@@ -7,6 +7,7 @@ Sitemap: https://api.odei.ai/sitemap.xml
 # AI agent discovery
 # llms.txt: https://odei.ai/llms.txt
 # agents.txt: https://odei.ai/agents.txt
+# agent.json: https://odei.ai/.well-known/agent.json
 
 # AI crawlers welcome
 User-agent: GPTBot
