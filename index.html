@@ -2031,11 +2031,12 @@
 
         /* ══════ CTA BUTTONS STYLES ══════ */
         .home-cta {
-            display: flex;
-            flex-direction: row;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             justify-content: center;
             align-items: center;
             gap: 2rem;
+            width: min(100%, 54rem);
             margin-top: 1.5rem;
             padding: 1rem 2rem;
             opacity: 0;
@@ -2073,6 +2074,7 @@
             font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
             font-size: 1rem;
             font-weight: 400;
+            min-height: 3.75rem;
             padding: 0.8rem 1.8rem;
             text-decoration: none;
             border: 1px solid rgba(79, 209, 197, 0.7);
@@ -2085,7 +2087,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: calc(16ch + 3.6rem + 2px);
+            width: 100%;
+            min-width: 0;
             text-align: center;
             white-space: nowrap;
         }
@@ -2137,14 +2140,14 @@
         /* Mobile adjustments for terminal CTA buttons */
         @media (max-width: 600px) {
             .home-cta {
-                flex-direction: column;
+                grid-template-columns: 1fr;
+                width: min(100%, 24rem);
                 gap: 1rem;
             }
 
             .terminal-cta {
                 padding: 0.7rem 1.5rem;
                 font-size: 0.9rem;
-                width: calc(16ch + 3rem + 2px);
             }
         }
 
@@ -2154,7 +2157,6 @@
                 padding: 0.6rem 1.2rem;
                 font-size: 0.85rem;
                 min-width: 160px;
-                width: calc(16ch + 2.4rem + 2px);
             }
         }
 
