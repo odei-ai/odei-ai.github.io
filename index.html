@@ -429,12 +429,39 @@
             /* Prevent flicker */
         }
 
+        .connect-video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) translateZ(0);
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.42;
+            filter: brightness(0.5);
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+
+        .connect-page-new .content,
+        .connect-page-new .page-number {
+            position: relative;
+            z-index: 2;
+        }
+
         /* Hide native video controls on iOS */
         .hero-video::-webkit-media-controls,
         .hero-video::-webkit-media-controls-panel,
         .hero-video::-webkit-media-controls-play-button,
         .hero-video::-webkit-media-controls-start-playback-button,
-        .hero-video::-webkit-media-controls-overlay-play-button {
+        .hero-video::-webkit-media-controls-overlay-play-button,
+        .connect-video-bg::-webkit-media-controls,
+        .connect-video-bg::-webkit-media-controls-panel,
+        .connect-video-bg::-webkit-media-controls-play-button,
+        .connect-video-bg::-webkit-media-controls-start-playback-button,
+        .connect-video-bg::-webkit-media-controls-overlay-play-button {
             display: none !important;
             -webkit-appearance: none !important;
             opacity: 0 !important;
@@ -443,7 +470,8 @@
         }
 
         /* Firefox and other browsers */
-        .hero-video::-moz-media-controls {
+        .hero-video::-moz-media-controls,
+        .connect-video-bg::-moz-media-controls {
             display: none !important;
         }
 
@@ -16171,6 +16199,11 @@
 
         <!-- Connect Page -->
         <section class="page connect-page-new" id="connect" data-page="9">
+            <video class="connect-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto"
+                disablePictureInPicture>
+                <source src="GxO7JgIb0AAAMcD.mp4" type="video/mp4">
+            </video>
+
             <div class="content">
                 <div class="small-logo-container">
                     <div class="opus-mark-container" data-page="0" role="button" aria-label="Return to home"
